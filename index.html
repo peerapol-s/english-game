@@ -6,7 +6,7 @@
 <title>English of Valor — By KruMEEN</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
 <style>
-:root {
+:root{
   --primary:#6C5CE7;--primary-dark:#5A4BD1;--secondary:#00CEC9;--accent:#FDCB6E;
   --danger:#E17055;--success:#00B894;--bg:#0F0E17;--bg2:#1A1929;--bg3:#252438;
   --card:#1E1D2E;--card2:#272638;--text:#FFFFFE;--text2:#A7A5C0;--text3:#6E6C8A;
@@ -40,7 +40,6 @@ input,select,textarea{font-family:'Nunito',sans-serif;outline:none;border:none}
 .btn-danger{background:linear-gradient(135deg,#E17055,#C0392B);color:#fff}
 .btn-success{background:linear-gradient(135deg,var(--success),#00967A);color:#fff}
 .btn-accent{background:linear-gradient(135deg,var(--accent),#F9A825);color:#1a1a1a;font-weight:800}
-.btn-warning{background:linear-gradient(135deg,#FDCB6E,#e17055);color:#1a1a1a;font-weight:800}
 .btn-sm{padding:8px 16px;font-size:.82rem;width:auto;border-radius:8px}
 .btn-icon{display:flex;align-items:center;justify-content:center;gap:8px}
 .mt8{margin-top:8px}.mt16{margin-top:16px}
@@ -49,8 +48,6 @@ input,select,textarea{font-family:'Nunito',sans-serif;outline:none;border:none}
 .divider::before{left:0}.divider::after{right:0}
 .alert{padding:10px 14px;border-radius:8px;font-size:.88rem;font-weight:600;margin-bottom:12px;display:none}
 .alert-error{background:rgba(225,112,85,.15);border:1px solid rgba(225,112,85,.4);color:#FF8A72}
-.alert-success{background:rgba(0,184,148,.15);border:1px solid rgba(0,184,148,.4);color:#00CFA0}
-/* NAVBAR */
 .navbar{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(15,14,23,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:12px 24px;display:flex;align-items:center;justify-content:space-between}
 .nav-logo{font-family:'Fredoka One',sans-serif;font-size:1.3rem;background:linear-gradient(135deg,#A29BFE,#6C5CE7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .nav-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -59,7 +56,6 @@ input,select,textarea{font-family:'Nunito',sans-serif;outline:none;border:none}
 .nav-badge.guest{background:var(--text3)}
 .nav-btn{background:var(--bg3);color:var(--text2);border:1px solid var(--border);border-radius:8px;padding:7px 14px;font-size:.8rem;font-weight:700;transition:.2s}
 .nav-btn:hover{background:var(--card2);color:var(--text)}
-/* HOME */
 #home-screen{padding-top:80px;justify-content:flex-start}
 .home-inner{width:100%;max-width:920px;padding:20px}
 .home-header{text-align:center;margin-bottom:32px}
@@ -78,13 +74,12 @@ input,select,textarea{font-family:'Nunito',sans-serif;outline:none;border:none}
 .grade-sub{font-size:.72rem;color:var(--text3)}
 .badge-coming{position:absolute;top:6px;right:6px;background:var(--bg3);color:var(--text3);font-size:.58rem;font-weight:800;padding:2px 6px;border-radius:4px;letter-spacing:.5px}
 .badge-new{position:absolute;top:6px;right:6px;background:var(--success);color:#fff;font-size:.58rem;font-weight:800;padding:2px 6px;border-radius:4px}
-/* GAME LIST */
 .game-list{margin-top:8px}
-.game-item{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:20px;margin-bottom:12px;display:flex;align-items:center;gap:16px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
+.game-item{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:20px;margin-bottom:12px;display:flex;align-items:center;gap:16px;transition:all .2s;position:relative;overflow:hidden}
 .game-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--primary);border-radius:4px 0 0 4px}
-.game-item:hover{background:var(--card2);border-color:rgba(108,92,231,.3);transform:translateX(4px)}
-.game-item.locked{opacity:.45;cursor:not-allowed}
-.game-item.locked::before{background:var(--text3)}
+.game-item.active-game:hover{background:var(--card2);border-color:rgba(108,92,231,.3);transform:translateX(4px);cursor:pointer}
+.game-item.locked-game{opacity:.45;cursor:not-allowed}
+.game-item.locked-game::before{background:var(--text3)}
 .game-emoji{font-size:2.1rem;flex-shrink:0}
 .game-info{flex:1}
 .game-name{font-size:1.02rem;font-weight:800;margin-bottom:2px}
@@ -94,9 +89,8 @@ input,select,textarea{font-family:'Nunito',sans-serif;outline:none;border:none}
 .tag-grade{background:rgba(108,92,231,.2);color:#A29BFE}
 .tag-skill{background:rgba(0,206,201,.15);color:#00CEC9}
 .tag-locked{background:rgba(110,108,138,.15);color:var(--text3)}
-.play-btn{background:var(--primary);color:#fff;border-radius:8px;padding:10px 18px;font-size:.85rem;font-weight:800;flex-shrink:0;transition:.2s}
+.play-btn{background:var(--primary);color:#fff;border-radius:8px;padding:10px 18px;font-size:.85rem;font-weight:800;flex-shrink:0;transition:.2s;cursor:pointer}
 .play-btn:hover{background:var(--primary-dark)}
-/* LEADERBOARD */
 .leaderboard-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-top:20px}
 .lb-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
 .lb-row:last-child{border-bottom:none}
@@ -105,7 +99,6 @@ input,select,textarea{font-family:'Nunito',sans-serif;outline:none;border:none}
 .rank-2{background:linear-gradient(135deg,#C0C0C0,#9E9E9E);color:#1a1a1a}
 .rank-3{background:linear-gradient(135deg,#CD7F32,#A0522D);color:#fff}
 .rank-other{background:var(--bg3);color:var(--text2)}
-/* GAME SCREEN */
 #game-screen{padding:0;justify-content:flex-start;align-items:stretch}
 .game-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .game-back{background:var(--bg3);color:var(--text2);border:1px solid var(--border);border-radius:8px;padding:8px 14px;font-size:.82rem;font-weight:700;cursor:pointer;transition:.2s}
@@ -116,14 +109,12 @@ input,select,textarea{font-family:'Nunito',sans-serif;outline:none;border:none}
 .stat-val{font-family:'Fredoka One',sans-serif;font-size:1.3rem;color:var(--accent)}
 .stat-label{font-size:.68rem;color:var(--text3);font-weight:700;letter-spacing:.5px}
 .game-body{flex:1;padding:20px;max-width:800px;width:100%;margin:0 auto;padding-bottom:40px}
-/* HP BAR */
 .hp-row{display:flex;align-items:center;gap:10px;margin-bottom:6px}
 .hp-bar{flex:1;height:14px;background:var(--bg3);border-radius:100px;overflow:hidden}
 .hp-fill{height:100%;border-radius:100px;transition:width .5s ease;background:linear-gradient(90deg,var(--danger),#FF4757)}
 .hp-fill.good{background:linear-gradient(90deg,var(--success),#55EFC4)}
 .hp-fill.medium{background:linear-gradient(90deg,var(--accent),#FFA000)}
 .hp-label{font-size:.78rem;font-weight:800;min-width:52px;text-align:right}
-/* MONSTER */
 .battle-arena{display:flex;gap:20px;margin-bottom:24px;flex-wrap:wrap}
 .monster-side,.player-side{flex:1;min-width:190px}
 .monster-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;position:relative;overflow:hidden}
@@ -132,9 +123,8 @@ input,select,textarea{font-family:'Nunito',sans-serif;outline:none;border:none}
 .player-box{background:var(--card);border:1px solid rgba(0,206,201,.2);border-radius:var(--radius);padding:20px;text-align:center}
 .player-avatar{font-size:clamp(2.8rem,8vw,4.2rem);margin:10px 0}
 .player-name{font-family:'Fredoka One',sans-serif;font-size:1.05rem;color:var(--secondary);margin-bottom:4px}
-/* QUESTION */
 .question-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px}
-.question-word{font-family:'Fredoka One',sans-serif;font-size:clamp(1.7rem,5vw,2.7rem);text-align:center;color:var(--accent);margin-bottom:8px;letter-spacing:2px}
+.question-word{font-family:'Fredoka One',sans-serif;font-size:clamp(1.6rem,5vw,2.6rem);text-align:center;color:var(--accent);margin-bottom:8px;letter-spacing:2px}
 .question-text{text-align:center;color:var(--text2);font-size:.92rem;font-weight:600;margin-bottom:4px}
 .choices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
 .choice-btn{background:var(--bg3);border:2px solid var(--border);border-radius:var(--radius-sm);padding:16px 12px;color:var(--text);font-size:.92rem;font-weight:700;transition:all .2s;text-align:center;cursor:pointer}
@@ -152,13 +142,11 @@ input,select,textarea{font-family:'Nunito',sans-serif;outline:none;border:none}
 .damage-float{position:absolute;font-family:'Fredoka One',sans-serif;font-size:1.8rem;pointer-events:none;animation:floatUp .9s ease forwards;z-index:10}
 .damage-float.enemy{color:#FF4757;top:20px;left:50%;transform:translateX(-50%)}
 .damage-float.player{color:var(--danger);top:20px;right:20px}
-/* POWERUPS */
 .powerups{display:flex;gap:10px;margin-bottom:16px;justify-content:center;flex-wrap:wrap}
 .powerup-btn{background:var(--bg3);border:1.5px solid var(--border);border-radius:10px;padding:10px 16px;color:var(--text2);font-size:.8rem;font-weight:700;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:6px}
 .powerup-btn:hover:not(:disabled){background:var(--card2);border-color:var(--accent);color:var(--accent)}
 .powerup-btn:disabled{opacity:.35;cursor:not-allowed}
 .powerup-count{background:var(--accent);color:#1a1a1a;border-radius:100px;font-size:.68rem;font-weight:900;padding:1px 6px;min-width:18px;text-align:center}
-/* RESULT */
 .result-box{text-align:center;padding:20px}
 .result-emoji{font-size:4.8rem;margin-bottom:16px;display:block;animation:bounceIn .6s ease}
 .result-title{font-family:'Fredoka One',sans-serif;font-size:1.9rem;margin-bottom:8px}
@@ -167,10 +155,8 @@ input,select,textarea{font-family:'Nunito',sans-serif;outline:none;border:none}
 .result-stat{background:var(--bg3);border-radius:var(--radius-sm);padding:14px}
 .result-stat-val{font-family:'Fredoka One',sans-serif;font-size:1.55rem;color:var(--primary)}
 .result-stat-label{font-size:.72rem;color:var(--text3);font-weight:700;margin-top:2px}
-/* PROGRESS */
 .progress-bar{height:8px;background:var(--bg3);border-radius:100px;margin-bottom:20px;overflow:hidden}
 .progress-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--secondary));border-radius:100px;transition:width .4s ease}
-/* ADMIN */
 #admin-screen{padding-top:80px;justify-content:flex-start;align-items:stretch}
 .admin-inner{width:100%;max-width:1100px;margin:0 auto;padding:20px}
 .admin-tabs{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
@@ -184,65 +170,51 @@ input,select,textarea{font-family:'Nunito',sans-serif;outline:none;border:none}
 .admin-table tr:hover td{background:var(--bg3)}
 .table-wrap{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;overflow-x:auto}
 .filter-row{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;align-items:center}
-.filter-select{background:var(--bg3);color:var(--text);border:1.5px solid var(--border);border-radius:8px;padding:8px 12px;font-size:.85rem;font-weight:600;cursor:pointer;min-width:100px}
+.filter-select{background:var(--bg3);color:var(--text);border:1.5px solid var(--border);border-radius:8px;padding:8px 12px;font-size:.85rem;font-weight:600;cursor:pointer}
 .filter-select:focus{border-color:var(--primary)}
 .admin-form{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px}
 .form-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:14px}
 .score-badge{display:inline-block;background:rgba(253,203,110,.15);color:var(--accent);border-radius:6px;padding:3px 8px;font-weight:800;font-size:.85rem}
-/* MODAL */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
 .modal-overlay.open{display:flex}
 .modal{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:32px;max-width:480px;width:100%;box-shadow:var(--shadow);animation:slideUp .3s ease}
 .modal-title{font-size:1.25rem;font-weight:800;margin-bottom:20px;text-align:center}
-/* TOAST */
 .toast{position:fixed;bottom:24px;right:24px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px 20px;font-size:.88rem;font-weight:700;z-index:300;transform:translateY(80px);opacity:0;transition:.3s;max-width:320px}
 .toast.show{transform:translateY(0);opacity:1}
 .toast.success{border-color:var(--success);color:var(--success)}
 .toast.error{border-color:var(--danger);color:var(--danger)}
-/* RESPONSIVE */
 @media(max-width:640px){
-  .card{padding:22px 18px}
-  .choices{grid-template-columns:1fr}
-  .battle-arena{flex-direction:column}
-  .result-details{grid-template-columns:1fr 1fr}
-  .form-row{grid-template-columns:1fr}
-  .admin-tabs{gap:5px}
-  .admin-tab{padding:7px 10px;font-size:.78rem}
-  .navbar{padding:10px 14px}
-  .nav-user{display:none}
-  .game-stats{gap:10px}
+  .card{padding:22px 18px}.choices{grid-template-columns:1fr}
+  .battle-arena{flex-direction:column}.result-details{grid-template-columns:1fr 1fr}
+  .form-row{grid-template-columns:1fr}.navbar{padding:10px 14px}.nav-user{display:none}
 }
-@media(max-width:400px){
-  .result-details{grid-template-columns:1fr}
-  .grade-grid{grid-template-columns:repeat(3,1fr)}
-}
+@media(max-width:400px){.result-details{grid-template-columns:1fr}.grade-grid{grid-template-columns:repeat(3,1fr)}}
 </style>
 </head>
 <body>
 <div class="stars" id="stars"></div>
 <div class="toast" id="toast"></div>
 
-<!-- NAVBAR -->
 <nav class="navbar" id="navbar" style="display:none">
-  <div class="nav-logo">⚔️ English of Valor</div>
+  <div class="nav-logo">&#9876;&#65039; English of Valor</div>
   <div class="nav-right">
     <span class="nav-user" id="nav-user-display"></span>
     <span class="nav-badge" id="nav-badge"></span>
-    <button class="nav-btn" onclick="goHome()">🏠 Home</button>
-    <button class="nav-btn" id="nav-admin-btn" style="display:none" onclick="goAdmin()">⚙️ Admin</button>
+    <button class="nav-btn" onclick="goHome()">&#127968; Home</button>
+    <button class="nav-btn" id="nav-admin-btn" style="display:none" onclick="goAdmin()">&#9881;&#65039; Admin</button>
     <button class="nav-btn" onclick="doLogout()">Logout</button>
   </div>
 </nav>
 
-<!-- ============ LOGIN SCREEN ============ -->
+<!-- LOGIN -->
 <div class="screen active" id="login-screen">
   <div style="margin-bottom:32px;text-align:center">
-    <div style="font-size:3.5rem;margin-bottom:12px">⚔️</div>
+    <div style="font-size:3.5rem;margin-bottom:12px">&#9876;&#65039;</div>
     <div class="logo">English of Valor</div>
-    <div class="logo-sub">English Learning Game — By KruMEEN</div>
+    <div class="logo-sub">English Learning Game &mdash; By KruMEEN</div>
   </div>
   <div class="card">
-    <div class="card-title">🎮 Login to Play</div>
+    <div class="card-title">&#127918; Login to Play</div>
     <div class="alert alert-error" id="login-error"></div>
     <div class="input-group">
       <label class="input-label">Student ID</label>
@@ -252,17 +224,17 @@ input,select,textarea{font-family:'Nunito',sans-serif;outline:none;border:none}
       <label class="input-label">Password (if required)</label>
       <input class="inp" id="student-pw-input" type="password" placeholder="Optional" maxlength="20">
     </div>
-    <button class="btn btn-primary btn-icon" onclick="doStudentLogin()">🚀 Start Playing!</button>
+    <button class="btn btn-primary btn-icon" onclick="doStudentLogin()">&#128640; Start Playing!</button>
     <div class="divider">or</div>
-    <button class="btn btn-secondary mt8" onclick="doAdminLogin()">🔑 Teacher / Admin Login</button>
-    <button class="btn btn-accent mt8" onclick="doGuestLogin()">👻 Play as Guest (score not saved)</button>
+    <button class="btn btn-secondary mt8" onclick="doAdminLogin()">&#128273; Teacher / Admin Login</button>
+    <button class="btn btn-accent mt8" onclick="doGuestLogin()">&#128123; Play as Guest (score not saved)</button>
   </div>
 </div>
 
-<!-- Admin Login Modal -->
+<!-- ADMIN LOGIN MODAL -->
 <div class="modal-overlay" id="admin-login-modal">
   <div class="modal">
-    <div class="modal-title">🔑 Admin Login</div>
+    <div class="modal-title">&#128273; Admin Login</div>
     <div class="alert alert-error" id="admin-login-error"></div>
     <div class="input-group">
       <label class="input-label">Username</label>
@@ -277,11 +249,11 @@ input,select,textarea{font-family:'Nunito',sans-serif;outline:none;border:none}
   </div>
 </div>
 
-<!-- Edit Student Modal -->
+<!-- EDIT STUDENT MODAL -->
 <div class="modal-overlay" id="edit-student-modal">
   <div class="modal">
-    <div class="modal-title">✏️ Edit Student</div>
-    <input type="hidden" id="edit-student-id-orig">
+    <div class="modal-title">&#9999;&#65039; Edit Student</div>
+    <input type="hidden" id="edit-orig-id">
     <div class="form-row">
       <div class="input-group" style="margin-bottom:0">
         <label class="input-label">Student ID</label>
@@ -289,155 +261,155 @@ input,select,textarea{font-family:'Nunito',sans-serif;outline:none;border:none}
       </div>
       <div class="input-group" style="margin-bottom:0">
         <label class="input-label">Full Name</label>
-        <input class="inp" id="edit-name" type="text">
+        <input class="inp" id="edit-sname" type="text">
       </div>
     </div>
     <div class="form-row" style="margin-top:12px">
       <div class="input-group" style="margin-bottom:0">
         <label class="input-label">Level</label>
-        <select class="inp filter-select" id="edit-grade" style="width:100%">
-          <option value="P.1">P.1</option><option value="P.2">P.2</option>
-          <option value="P.3">P.3</option><option value="P.4">P.4</option>
-          <option value="P.5">P.5</option><option value="P.6">P.6</option>
-          <option value="M.1">M.1</option><option value="M.2">M.2</option>
-          <option value="M.3">M.3</option><option value="M.4">M.4</option>
-          <option value="M.5">M.5</option><option value="M.6">M.6</option>
+        <select class="inp filter-select" id="edit-sgrade" style="width:100%">
+          <option>P.1</option><option>P.2</option><option>P.3</option>
+          <option>P.4</option><option>P.5</option><option>P.6</option>
+          <option>M.1</option><option>M.2</option><option>M.3</option>
+          <option>M.4</option><option>M.5</option><option>M.6</option>
         </select>
       </div>
       <div class="input-group" style="margin-bottom:0">
         <label class="input-label">Room</label>
-        <input class="inp" id="edit-room" type="text" placeholder="e.g. 1, 2, 3" maxlength="10">
+        <input class="inp" id="edit-sroom" type="text" placeholder="e.g. 1" maxlength="10">
+      </div>
+      <div class="input-group" style="margin-bottom:0">
+        <label class="input-label">Password</label>
+        <input class="inp" id="edit-spw" type="text" placeholder="Leave blank = none" maxlength="20">
       </div>
     </div>
-    <div class="input-group" style="margin-top:12px">
-      <label class="input-label">Password (optional)</label>
-      <input class="inp" id="edit-pw" type="text" placeholder="Leave blank = no password" maxlength="20">
-    </div>
     <div style="display:flex;gap:10px;margin-top:16px">
-      <button class="btn btn-primary" onclick="saveEditStudent()">💾 Save Changes</button>
+      <button class="btn btn-primary" onclick="saveEditStudent()">&#128190; Save</button>
       <button class="btn btn-secondary" onclick="closeModal('edit-student-modal')">Cancel</button>
     </div>
   </div>
 </div>
 
-<!-- ============ HOME SCREEN ============ -->
+<!-- LEAVE MODAL -->
+<div class="modal-overlay" id="leave-modal">
+  <div class="modal">
+    <div class="modal-title">&#9888;&#65039; Leave Game?</div>
+    <div style="text-align:center;color:var(--text2);margin-bottom:20px;font-size:.92rem">Your current progress will not be saved.</div>
+    <button class="btn btn-danger" onclick="leaveGame()">Leave Now</button>
+    <button class="btn btn-secondary mt8" onclick="closeModal('leave-modal')">Keep Playing</button>
+  </div>
+</div>
+
+<!-- HOME -->
 <div class="screen" id="home-screen">
   <div class="home-inner">
     <div class="home-header">
-      <div class="home-title" id="home-greeting">Welcome! 🎉</div>
+      <div class="home-title" id="home-greeting">Welcome! &#127881;</div>
       <div class="home-sub" id="home-sub">Choose your level and select a game to play</div>
     </div>
     <div class="grade-section">
-      <div class="grade-section-title">📚 Primary School</div>
+      <div class="grade-section-title">&#128218; Primary School</div>
       <div class="grade-grid" id="primary-grades"></div>
     </div>
     <div class="grade-section">
-      <div class="grade-section-title">📖 Secondary School</div>
+      <div class="grade-section-title">&#128214; Secondary School</div>
       <div class="grade-grid" id="secondary-grades"></div>
     </div>
     <div id="game-list-section" style="display:none">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px">
-        <div style="font-weight:800;font-size:1.05rem" id="game-list-title">Games for M.1</div>
-        <button class="btn btn-sm btn-secondary" onclick="document.getElementById('game-list-section').style.display='none'">Close ✕</button>
+        <div style="font-weight:800;font-size:1.05rem" id="game-list-title">Games</div>
+        <button class="btn btn-sm btn-secondary" onclick="document.getElementById('game-list-section').style.display='none'">Close &#10005;</button>
       </div>
       <div class="game-list" id="game-list"></div>
     </div>
-    <!-- Hall of Fame -->
     <div style="margin-top:12px">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px">
-        <div style="font-weight:800;font-size:1.02rem">🏆 Hall of Fame</div>
+        <div style="font-weight:800;font-size:1.02rem">&#127942; Hall of Fame</div>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <select class="filter-select" id="lb-filter-game" onchange="renderLeaderboard()" style="font-size:.78rem;padding:6px 10px">
+          <select class="filter-select" id="lb-game" onchange="renderLeaderboard()" style="font-size:.78rem;padding:6px 10px">
             <option value="all">All Games</option>
             <option value="Word Quest RPG">Word Quest RPG</option>
           </select>
-          <select class="filter-select" id="lb-filter-grade" onchange="renderLeaderboard()" style="font-size:.78rem;padding:6px 10px">
+          <select class="filter-select" id="lb-grade" onchange="lbGradeChange()" style="font-size:.78rem;padding:6px 10px">
             <option value="all">All Levels</option>
           </select>
-          <select class="filter-select" id="lb-filter-room" onchange="renderLeaderboard()" style="font-size:.78rem;padding:6px 10px">
+          <select class="filter-select" id="lb-room" onchange="renderLeaderboard()" style="font-size:.78rem;padding:6px 10px">
             <option value="all">All Rooms</option>
           </select>
         </div>
       </div>
-      <div class="leaderboard-card" id="leaderboard-container">
+      <div class="leaderboard-card" id="lb-container">
         <div style="text-align:center;color:var(--text3);padding:20px;font-size:.9rem">No scores yet. Be the first!</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ============ GAME SCREEN ============ -->
+<!-- GAME -->
 <div class="screen" id="game-screen">
   <div class="game-header">
-    <button class="game-back" onclick="confirmLeave()">← Back</button>
+    <button class="game-back" onclick="confirmLeave()">&#8592; Back</button>
     <div class="game-title-bar" id="game-title-bar">Word Quest RPG</div>
     <div class="game-stats">
       <div class="stat-item"><div class="stat-val" id="stat-score">0</div><div class="stat-label">SCORE</div></div>
       <div class="stat-item"><div class="stat-val" id="stat-level">1</div><div class="stat-label">WAVE</div></div>
-      <div class="stat-item"><div class="stat-val" id="stat-streak">0</div><div class="stat-label">STREAK 🔥</div></div>
+      <div class="stat-item"><div class="stat-val" id="stat-streak">0</div><div class="stat-label">STREAK &#128293;</div></div>
     </div>
   </div>
   <div class="game-body" id="game-body"></div>
 </div>
 
-<!-- ============ ADMIN SCREEN ============ -->
+<!-- ADMIN -->
 <div class="screen" id="admin-screen">
   <div class="admin-inner">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:10px">
-      <div style="font-size:1.4rem;font-weight:900">⚙️ Admin Panel</div>
-    </div>
+    <div style="font-size:1.4rem;font-weight:900;margin-bottom:20px">&#9881;&#65039; Admin Panel</div>
     <div class="admin-tabs">
-      <button class="admin-tab active" onclick="switchAdminTab('students',this)">👥 Students</button>
-      <button class="admin-tab" onclick="switchAdminTab('scores',this)">📊 Scores</button>
-      <button class="admin-tab" onclick="switchAdminTab('settings',this)">🔧 Settings</button>
+      <button class="admin-tab active" id="tab-btn-students" onclick="switchTab('students')">&#128101; Students</button>
+      <button class="admin-tab" id="tab-btn-scores" onclick="switchTab('scores')">&#128202; Scores</button>
+      <button class="admin-tab" id="tab-btn-settings" onclick="switchTab('settings')">&#128295; Settings</button>
     </div>
 
-    <!-- STUDENTS TAB -->
+    <!-- STUDENTS -->
     <div class="admin-panel active" id="admin-tab-students">
       <div class="admin-form">
-        <div style="font-weight:800;margin-bottom:16px;font-size:1rem">➕ Add New Student</div>
+        <div style="font-weight:800;margin-bottom:16px">&#10133; Add New Student</div>
         <div class="form-row">
           <div class="input-group" style="margin-bottom:0">
             <label class="input-label">Student ID</label>
-            <input class="inp" id="new-student-id" type="text" placeholder="e.g. 67001" maxlength="20">
+            <input class="inp" id="ns-id" type="text" placeholder="e.g. 67001" maxlength="20">
           </div>
           <div class="input-group" style="margin-bottom:0">
             <label class="input-label">Full Name</label>
-            <input class="inp" id="new-student-name" type="text" placeholder="Student full name">
+            <input class="inp" id="ns-name" type="text" placeholder="Student full name">
           </div>
-        </div>
-        <div class="form-row" style="margin-top:12px">
           <div class="input-group" style="margin-bottom:0">
             <label class="input-label">Level</label>
-            <select class="inp filter-select" id="new-student-grade" style="width:100%">
+            <select class="inp filter-select" id="ns-grade" style="width:100%">
               <option value="">-- Select Level --</option>
-              <option value="P.1">P.1</option><option value="P.2">P.2</option>
-              <option value="P.3">P.3</option><option value="P.4">P.4</option>
-              <option value="P.5">P.5</option><option value="P.6">P.6</option>
-              <option value="M.1">M.1</option><option value="M.2">M.2</option>
-              <option value="M.3">M.3</option><option value="M.4">M.4</option>
-              <option value="M.5">M.5</option><option value="M.6">M.6</option>
+              <option>P.1</option><option>P.2</option><option>P.3</option>
+              <option>P.4</option><option>P.5</option><option>P.6</option>
+              <option>M.1</option><option>M.2</option><option>M.3</option>
+              <option>M.4</option><option>M.5</option><option>M.6</option>
             </select>
           </div>
           <div class="input-group" style="margin-bottom:0">
             <label class="input-label">Room</label>
-            <input class="inp" id="new-student-room" type="text" placeholder="e.g. 1, 2, 3" maxlength="10">
+            <input class="inp" id="ns-room" type="text" placeholder="e.g. 1, 2, 3" maxlength="10">
           </div>
           <div class="input-group" style="margin-bottom:0">
             <label class="input-label">Password (optional)</label>
-            <input class="inp" id="new-student-pw" type="text" placeholder="Leave blank = none" maxlength="20">
+            <input class="inp" id="ns-pw" type="text" placeholder="Leave blank = none" maxlength="20">
           </div>
         </div>
         <button class="btn btn-primary mt16" style="width:auto;padding:11px 26px" onclick="addStudent()">Add Student</button>
       </div>
-
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:10px">
-        <div style="font-weight:800;font-size:.92rem" id="student-count-label">Student List (0)</div>
+        <div style="font-weight:800;font-size:.92rem" id="student-count-label">Student List</div>
         <div class="filter-row" style="margin-bottom:0;gap:8px">
-          <select class="filter-select" id="grade-filter-student" onchange="onStudentFilterChange()" style="font-size:.8rem">
+          <select class="filter-select" id="sf-grade" onchange="sfGradeChange()" style="font-size:.8rem">
             <option value="all">All Levels</option>
           </select>
-          <select class="filter-select" id="room-filter-student" onchange="renderStudentTable()" style="font-size:.8rem">
+          <select class="filter-select" id="sf-room" onchange="renderStudentTable()" style="font-size:.8rem">
             <option value="all">All Rooms</option>
           </select>
           <button class="btn btn-sm btn-danger" onclick="clearAllStudents()">Delete All</button>
@@ -445,112 +417,82 @@ input,select,textarea{font-family:'Nunito',sans-serif;outline:none;border:none}
       </div>
       <div class="table-wrap">
         <table class="admin-table">
-          <thead><tr>
-            <th>NO.</th><th>ID</th><th>NAME</th><th>LEVEL</th><th>ROOM</th><th>PASSWORD</th><th>ACTIONS</th>
-          </tr></thead>
+          <thead><tr><th>NO.</th><th>ID</th><th>NAME</th><th>LEVEL</th><th>ROOM</th><th>PASSWORD</th><th>ACTIONS</th></tr></thead>
           <tbody id="student-tbody"></tbody>
         </table>
       </div>
     </div>
 
-    <!-- SCORES TAB -->
+    <!-- SCORES -->
     <div class="admin-panel" id="admin-tab-scores">
       <div class="filter-row">
-        <select class="filter-select" id="score-filter-grade" onchange="onScoreFilterChange()">
+        <select class="filter-select" id="scf-grade" onchange="scfGradeChange()">
           <option value="all">All Levels</option>
         </select>
-        <select class="filter-select" id="score-filter-room" onchange="renderScoreTable()">
+        <select class="filter-select" id="scf-room" onchange="renderScoreTable()">
           <option value="all">All Rooms</option>
         </select>
-        <select class="filter-select" id="score-filter-game" onchange="renderScoreTable()">
+        <select class="filter-select" id="scf-game" onchange="renderScoreTable()">
           <option value="all">All Games</option>
           <option value="Word Quest RPG">Word Quest RPG</option>
         </select>
         <div style="flex:1"></div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <button class="btn btn-sm btn-success" onclick="exportCSV()">📥 Export CSV</button>
-          <button class="btn btn-sm btn-secondary" onclick="clearAllScores()">🗑️ Clear Scores</button>
-        </div>
+        <button class="btn btn-sm btn-success" onclick="exportCSV()">&#128229; Export CSV</button>
+        <button class="btn btn-sm btn-secondary" onclick="clearAllScores()">&#128465;&#65039; Clear All</button>
       </div>
       <div class="table-wrap">
         <table class="admin-table">
-          <thead><tr>
-            <th>#</th><th>ID</th><th>NAME</th><th>LEVEL</th><th>ROOM</th><th>GAME</th><th>SCORE</th><th>CORRECT/WRONG</th><th>DATE</th>
-          </tr></thead>
+          <thead><tr><th>#</th><th>ID</th><th>NAME</th><th>LEVEL</th><th>ROOM</th><th>GAME</th><th>SCORE</th><th>CORRECT/WRONG</th><th>DATE</th></tr></thead>
           <tbody id="score-tbody"></tbody>
         </table>
       </div>
     </div>
 
-    <!-- SETTINGS TAB -->
+    <!-- SETTINGS -->
     <div class="admin-panel" id="admin-tab-settings">
       <div class="admin-form">
-        <div style="font-weight:800;margin-bottom:16px;font-size:1rem">🔑 Change Admin Password</div>
-        <div class="input-group">
-          <label class="input-label">Current Password</label>
-          <input class="inp" id="old-pw" type="password">
-        </div>
-        <div class="input-group">
-          <label class="input-label">New Password</label>
-          <input class="inp" id="new-pw" type="password">
-        </div>
-        <div class="input-group">
-          <label class="input-label">Confirm New Password</label>
-          <input class="inp" id="confirm-pw" type="password">
-        </div>
-        <button class="btn btn-primary" style="width:auto;padding:11px 26px" onclick="changeAdminPassword()">Save Password</button>
+        <div style="font-weight:800;margin-bottom:16px">&#128273; Change Admin Password</div>
+        <div class="input-group"><label class="input-label">Current Password</label><input class="inp" id="old-pw" type="password"></div>
+        <div class="input-group"><label class="input-label">New Password</label><input class="inp" id="new-pw" type="password"></div>
+        <div class="input-group"><label class="input-label">Confirm New Password</label><input class="inp" id="confirm-pw" type="password"></div>
+        <button class="btn btn-primary" style="width:auto;padding:11px 26px" onclick="changeAdminPw()">Save Password</button>
       </div>
-
-      <div class="admin-form" style="margin-top:16px">
-        <div style="font-weight:800;margin-bottom:6px;font-size:1rem">📥 Import Students from File</div>
-        <div style="color:var(--text2);font-size:.83rem;margin-bottom:14px">
-          Supported: <b>.csv</b> or <b>.xls/.xlsx</b> — Columns: <code style="background:var(--bg3);padding:2px 6px;border-radius:4px;font-size:.8rem">No., ID, Name, Level, Room, Password</code>
+      <div class="admin-form">
+        <div style="font-weight:800;margin-bottom:6px">&#128229; Import Students from File</div>
+        <div style="color:var(--text2);font-size:.83rem;margin-bottom:12px">
+          Supported: <b>.csv</b> or <b>.xlsx</b> &mdash; Columns: <code style="background:var(--bg3);padding:2px 6px;border-radius:4px;font-size:.8rem">No., ID, Name, Level, Room, Password</code>
         </div>
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px">
-          <button class="btn btn-sm btn-accent" onclick="downloadTemplate()">📋 Download Student Template</button>
+          <button class="btn btn-sm btn-accent" onclick="downloadTemplate()">&#128203; Download Template</button>
           <label class="btn btn-sm btn-primary" style="cursor:pointer;display:inline-flex;align-items:center;gap:6px;width:auto;padding:8px 16px">
-            📂 Import from File
-            <input type="file" id="import-file-input" accept=".csv,.xls,.xlsx" style="display:none" onchange="handleFileImport(this)">
+            &#128194; Import from File
+            <input type="file" id="file-import" accept=".csv,.xls,.xlsx" style="display:none" onchange="handleFileImport(this)">
           </label>
         </div>
-        <div style="color:var(--text3);font-size:.78rem;margin-bottom:8px">Or paste CSV text directly:</div>
-        <textarea class="inp" id="csv-import" rows="4" placeholder="67001,John Smith,M.1,1,1234&#10;67002,Jane Doe,M.1,2"></textarea>
-        <button class="btn btn-accent mt8" style="width:auto;padding:11px 24px" onclick="importCSVText()">Import Text</button>
+        <div style="color:var(--text3);font-size:.78rem;margin-bottom:6px">Or paste CSV text (ID, Name, Level, Room, Password):</div>
+        <textarea class="inp" id="csv-paste" rows="4" placeholder="67001,John Smith,M.1,1,1234&#10;67002,Jane Doe,M.1,2,"></textarea>
+        <button class="btn btn-accent mt8" style="width:auto;padding:11px 24px" onclick="importPastedCSV()">Import Text</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Leave Confirm Modal -->
-<div class="modal-overlay" id="leave-modal">
-  <div class="modal">
-    <div class="modal-title">⚠️ Leave Game?</div>
-    <div style="text-align:center;color:var(--text2);margin-bottom:20px;font-size:.92rem">Your current progress will not be saved.</div>
-    <button class="btn btn-danger" onclick="leaveGame()">Leave Now</button>
-    <button class="btn btn-secondary mt8" onclick="closeModal('leave-modal')">Keep Playing</button>
-  </div>
-</div>
-
 <script>
-// ============================================================
-// STARS
-// ============================================================
+// ===== STARS =====
 (function(){
-  const c=document.getElementById('stars');
-  for(let i=0;i<80;i++){
-    const s=document.createElement('div');s.className='star';
-    const sz=Math.random()*2.5+0.5;
-    s.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${2+Math.random()*4}s;--delay:-${Math.random()*5}s`;
+  var c=document.getElementById('stars');
+  for(var i=0;i<80;i++){
+    var s=document.createElement('div');s.className='star';
+    var sz=Math.random()*2.5+0.5;
+    s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;--d:'+(2+Math.random()*4)+'s;--delay:-'+Math.random()*5+'s';
     c.appendChild(s);
   }
 })();
 
-// ============================================================
-// DATA STORE
-// ============================================================
-const DB={
-  get(k,def){try{const v=localStorage.getItem('eov_'+k);return v?JSON.parse(v):def;}catch(e){return def;}},
-  set(k,v){try{localStorage.setItem('eov_'+k,JSON.stringify(v));}catch(e){}},
+// ===== DATA =====
+var DB={
+  get:function(k,def){try{var v=localStorage.getItem('eov2_'+k);return v?JSON.parse(v):def;}catch(e){return def;}},
+  set:function(k,v){try{localStorage.setItem('eov2_'+k,JSON.stringify(v));}catch(e){}}
 };
 function getAdminCreds(){return DB.get('admin',{user:'admin',pass:'admin123'});}
 function getStudents(){return DB.get('students',[]);}
@@ -558,759 +500,723 @@ function saveStudents(s){DB.set('students',s);}
 function getScores(){return DB.get('scores',[]);}
 function saveScores(s){DB.set('scores',s);}
 
-// ============================================================
-// SESSION
-// ============================================================
-let currentUser=null;
-function setUser(u){currentUser=u;}
+// ===== SESSION =====
+var CU=null;
 
-// ============================================================
-// SCREENS
-// ============================================================
+// ===== SCREENS =====
 function showScreen(id){
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active');});
   document.getElementById(id).classList.add('active');
   window.scrollTo(0,0);
 }
 function goHome(){
   showScreen('home-screen');
-  updateNavbar();
-  renderGrades();
-  renderLeaderboard();
-  populateLbFilters();
+  updateNavbar();renderGrades();
+  populateLbGrades();renderLeaderboard();
   document.getElementById('game-list-section').style.display='none';
 }
 function goAdmin(){
   showScreen('admin-screen');
   updateNavbar();
-  updateGradeFilters();
-  renderStudentTable();
-  renderScoreTable();
+  populateGradeDropdowns();
+  renderStudentTable();renderScoreTable();
 }
 function updateNavbar(){
-  const nb=document.getElementById('navbar');
-  if(!currentUser){nb.style.display='none';return;}
+  var nb=document.getElementById('navbar');
+  if(!CU){nb.style.display='none';return;}
   nb.style.display='flex';
-  const badge=document.getElementById('nav-badge');
-  const userDisp=document.getElementById('nav-user-display');
-  const adminBtn=document.getElementById('nav-admin-btn');
-  if(currentUser.isAdmin){
+  var badge=document.getElementById('nav-badge');
+  var ud=document.getElementById('nav-user-display');
+  var ab=document.getElementById('nav-admin-btn');
+  if(CU.isAdmin){
     badge.textContent='ADMIN';badge.className='nav-badge';badge.style.background='#E17055';
-    userDisp.textContent='Admin';adminBtn.style.display='flex';
-  } else if(currentUser.isGuest){
-    badge.textContent='GUEST';badge.className='nav-badge guest';
-    userDisp.textContent='';adminBtn.style.display='none';
+    ud.textContent='Admin';ab.style.display='flex';
+  } else if(CU.isGuest){
+    badge.textContent='GUEST';badge.className='nav-badge guest';ud.textContent='';ab.style.display='none';
   } else {
-    const roomLabel=currentUser.room?` / Room ${currentUser.room}`:'';
-    badge.textContent=currentUser.grade+roomLabel;badge.className='nav-badge';badge.style.background='';
-    userDisp.textContent=currentUser.name||currentUser.id;adminBtn.style.display='none';
+    var rm=CU.room?' / Room '+CU.room:'';
+    badge.textContent=CU.grade+rm;badge.className='nav-badge';badge.style.background='';
+    ud.textContent=CU.name||CU.id;ab.style.display='none';
   }
 }
 
-// ============================================================
-// LOGIN
-// ============================================================
+// ===== LOGIN =====
 function doStudentLogin(){
-  const id=document.getElementById('student-id-input').value.trim();
-  const pw=document.getElementById('student-pw-input').value.trim();
+  var id=document.getElementById('student-id-input').value.trim();
+  var pw=document.getElementById('student-pw-input').value.trim();
   if(!id){showAlert('login-error','Please enter your Student ID.');return;}
-  const students=getStudents();
-  const found=students.find(s=>s.id===id);
+  var students=getStudents();
+  var found=null;
+  for(var i=0;i<students.length;i++){if(students[i].id===id){found=students[i];break;}}
   if(!found){showAlert('login-error','Student ID not found. Please check with your teacher.');return;}
   if(found.pw&&found.pw!==pw){showAlert('login-error','Incorrect password. Please try again.');return;}
-  setUser({id:found.id,name:found.name,grade:found.grade,room:found.room||''});
+  CU={id:found.id,name:found.name,grade:found.grade,room:found.room||''};
   afterLogin();
 }
 function doAdminLogin(){openModal('admin-login-modal');}
 function confirmAdminLogin(){
-  const u=document.getElementById('admin-user-inp').value.trim();
-  const p=document.getElementById('admin-pass-inp').value.trim();
-  const creds=getAdminCreds();
+  var u=document.getElementById('admin-user-inp').value.trim();
+  var p=document.getElementById('admin-pass-inp').value.trim();
+  var creds=getAdminCreds();
   if(u!==creds.user||p!==creds.pass){showAlert('admin-login-error','Incorrect username or password.');return;}
   closeModal('admin-login-modal');
-  setUser({id:'admin',name:'Admin',isAdmin:true});
+  CU={id:'admin',name:'Admin',isAdmin:true};
   afterLogin();goAdmin();
 }
-function doGuestLogin(){
-  setUser({id:'guest',name:'Guest',isGuest:true});
-  afterLogin();
-}
+function doGuestLogin(){CU={id:'guest',name:'Guest',isGuest:true};afterLogin();}
 function afterLogin(){
   hideAlert('login-error');
   document.getElementById('student-id-input').value='';
   document.getElementById('student-pw-input').value='';
   updateNavbar();goHome();
-  if(!currentUser.isAdmin&&!currentUser.isGuest){
-    const grade=currentUser.grade||'M.1';
-    const gradeEl=document.querySelector(`.grade-card[data-grade="${grade}"]`);
-    if(gradeEl)setTimeout(()=>gradeEl.click(),400);
+  if(CU&&!CU.isAdmin&&!CU.isGuest){
+    var grade=CU.grade||'M.1';
+    setTimeout(function(){
+      var el=document.querySelector('.grade-card[data-grade="'+grade+'"]');
+      if(el)el.click();
+    },400);
   }
 }
 function doLogout(){
-  setUser(null);showScreen('login-screen');
+  CU=null;showScreen('login-screen');
   document.getElementById('navbar').style.display='none';
 }
 
-// ============================================================
-// GRADES
-// ============================================================
-const GRADES={
+// ===== GRADES =====
+var GRADES={
   primary:[
-    {id:'P.1',emoji:'🌱',games:[]},{id:'P.2',emoji:'🌿',games:[]},
-    {id:'P.3',emoji:'🌸',games:[]},{id:'P.4',emoji:'🌺',games:[]},
-    {id:'P.5',emoji:'🌻',games:[]},{id:'P.6',emoji:'🌳',games:[]},
+    {id:'P.1',emoji:'&#127777;',games:[]},{id:'P.2',emoji:'&#127807;',games:[]},
+    {id:'P.3',emoji:'&#127800;',games:[]},{id:'P.4',emoji:'&#127802;',games:[]},
+    {id:'P.5',emoji:'&#127803;',games:[]},{id:'P.6',emoji:'&#127795;',games:[]},
   ],
   secondary:[
-    {id:'M.1',emoji:'⚔️',games:[
+    {id:'M.1',emoji:'&#9876;&#65039;',games:[
       {id:'word-quest',name:'Word Quest RPG',desc:'Battle monsters with vocabulary & grammar! Answer correctly to attack your enemy.',skill:'Vocabulary + Grammar',active:true}
     ]},
-    {id:'M.2',emoji:'🧩',games:[]},{id:'M.3',emoji:'🔮',games:[]},
-    {id:'M.4',emoji:'🎯',games:[]},{id:'M.5',emoji:'🚀',games:[]},
-    {id:'M.6',emoji:'🏆',games:[]},
+    {id:'M.2',emoji:'&#129521;',games:[]},{id:'M.3',emoji:'&#128302;',games:[]},
+    {id:'M.4',emoji:'&#127919;',games:[]},{id:'M.5',emoji:'&#128640;',games:[]},
+    {id:'M.6',emoji:'&#127942;',games:[]},
   ]
 };
-let selectedGrade=null;
+
 function renderGrades(){
-  ['primary','secondary'].forEach(level=>{
-    const container=document.getElementById(`${level}-grades`);
+  ['primary','secondary'].forEach(function(level){
+    var container=document.getElementById(level+'-grades');
     container.innerHTML='';
-    GRADES[level].forEach(g=>{
-      const isGuest=currentUser&&currentUser.isGuest;
-      const isAdmin=currentUser&&currentUser.isAdmin;
-      const myGrade=currentUser?currentUser.grade:null;
-      const hasGames=g.games.length>0;
-      const locked=!isGuest&&!isAdmin&&myGrade!==g.id;
-      const div=document.createElement('div');
-      div.className=`grade-card ${locked?'locked':'unlocked'} ${myGrade===g.id?'active-grade':''}`;
+    GRADES[level].forEach(function(g){
+      var isGuest=CU&&CU.isGuest;
+      var isAdmin=CU&&CU.isAdmin;
+      var myGrade=CU?CU.grade:null;
+      var hasGames=g.games.length>0;
+      var locked=!isGuest&&!isAdmin&&myGrade!==g.id;
+      var div=document.createElement('div');
+      div.className='grade-card '+(locked?'locked':'unlocked')+(myGrade===g.id?' active-grade':'');
       div.dataset.grade=g.id;
-      div.innerHTML=`
-        <div class="grade-icon">${g.emoji}</div>
-        <div class="grade-name">${g.id}</div>
-        <div class="grade-sub">${hasGames?g.games.length+' game(s)':'No games yet'}</div>
-        ${!hasGames?'<div class="badge-coming">SOON</div>':''}
-        ${hasGames&&(myGrade===g.id||isGuest||isAdmin)?'<div class="badge-new">PLAY</div>':''}
-      `;
-      if(!locked)div.onclick=()=>selectGrade(g.id);
+      div.innerHTML='<div class="grade-icon">'+g.emoji+'</div>'
+        +'<div class="grade-name">'+g.id+'</div>'
+        +'<div class="grade-sub">'+(hasGames?g.games.length+' game(s)':'No games yet')+'</div>'
+        +(!hasGames?'<div class="badge-coming">SOON</div>':'')
+        +(hasGames&&(myGrade===g.id||isGuest||isAdmin)?'<div class="badge-new">PLAY</div>':'');
+      if(!locked){
+        (function(gid){div.onclick=function(){selectGrade(gid);};})(g.id);
+      }
       container.appendChild(div);
     });
   });
 }
+
 function selectGrade(gradeId){
-  selectedGrade=gradeId;
-  const gradeData=[...GRADES.primary,...GRADES.secondary].find(g=>g.id===gradeId);
-  if(!gradeData)return;
-  document.getElementById('game-list-title').textContent=`Games for ${gradeId}`;
-  const list=document.getElementById('game-list');
-  if(!gradeData.games.length){
-    list.innerHTML=`<div style="text-align:center;padding:32px;color:var(--text3);font-size:.9rem">🚧 Games for ${gradeId} are coming soon!</div>`;
+  var allGrades=GRADES.primary.concat(GRADES.secondary);
+  var gData=null;
+  for(var i=0;i<allGrades.length;i++){if(allGrades[i].id===gradeId){gData=allGrades[i];break;}}
+  if(!gData)return;
+  document.getElementById('game-list-title').textContent='Games for '+gradeId;
+  var list=document.getElementById('game-list');
+  if(!gData.games.length){
+    list.innerHTML='<div style="text-align:center;padding:32px;color:var(--text3);font-size:.9rem">&#128679; Games for '+gradeId+' are coming soon!</div>';
   } else {
-    list.innerHTML=gradeData.games.map(game=>`
-      <div class="game-item ${game.active?'':'locked'}" onclick="${game.active?`startGame('${game.id}','${gradeId}')`:''}" >
-        <div class="game-emoji">${gradeData.emoji}</div>
-        <div class="game-info">
-          <div class="game-name">${game.name}</div>
-          <div class="game-desc">${game.desc}</div>
-          <div class="game-meta">
-            <span class="tag tag-grade">${gradeId}</span>
-            <span class="tag tag-skill">${game.skill}</span>
-            ${!game.active?'<span class="tag tag-locked">🔒 Coming Soon</span>':''}
-          </div>
-        </div>
-        ${game.active?`<button class="play-btn" onclick="event.stopPropagation();startGame('${game.id}','${gradeId}')">▶ Play</button>`:''}
-      </div>
-    `).join('');
+    list.innerHTML=gData.games.map(function(game){
+      var cls=game.active?'active-game':'locked-game';
+      return '<div class="game-item '+cls+'" id="gi-'+game.id+'">'
+        +'<div class="game-emoji">'+gData.emoji+'</div>'
+        +'<div class="game-info">'
+        +'<div class="game-name">'+game.name+'</div>'
+        +'<div class="game-desc">'+game.desc+'</div>'
+        +'<div class="game-meta">'
+        +'<span class="tag tag-grade">'+gradeId+'</span>'
+        +'<span class="tag tag-skill">'+game.skill+'</span>'
+        +(!game.active?'<span class="tag tag-locked">&#128274; Coming Soon</span>':'')
+        +'</div></div>'
+        +(game.active?'<button class="play-btn" onclick="startGame(\''+game.id+'\',\''+gradeId+'\')">&#9654; Play</button>':'')
+        +'</div>';
+    }).join('');
+    gData.games.forEach(function(game){
+      if(game.active){
+        var el=document.getElementById('gi-'+game.id);
+        if(el){
+          (function(gid,grd){el.onclick=function(e){if(e.target.classList.contains('play-btn'))return;startGame(gid,grd);};})(game.id,gradeId);
+        }
+      }
+    });
   }
   document.getElementById('game-list-section').style.display='block';
   document.getElementById('game-list-section').scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
-// ============================================================
-// LEADERBOARD
-// ============================================================
-function populateLbFilters(){
-  const students=getStudents();
-  const grades=[...new Set(students.map(s=>s.grade))].sort();
-  const lbGrade=document.getElementById('lb-filter-grade');
-  const cur=lbGrade.value;
-  lbGrade.innerHTML='<option value="all">All Levels</option>'+grades.map(g=>`<option value="${g}">${g}</option>`).join('');
-  if(cur)lbGrade.value=cur;
-  lbGrade.onchange=()=>{populateLbRoomFilter();renderLeaderboard();};
-  populateLbRoomFilter();
+// ===== LEADERBOARD =====
+function populateLbGrades(){
+  var students=getStudents();
+  var grades=[];
+  students.forEach(function(s){if(grades.indexOf(s.grade)<0)grades.push(s.grade);});
+  grades.sort();
+  var sel=document.getElementById('lb-grade');
+  var cur=sel.value;
+  sel.innerHTML='<option value="all">All Levels</option>'+grades.map(function(g){return '<option value="'+g+'">'+g+'</option>';}).join('');
+  if(cur)sel.value=cur;
+  populateLbRooms();
 }
-function populateLbRoomFilter(){
-  const students=getStudents();
-  const grade=document.getElementById('lb-filter-grade').value;
-  const filtered=grade==='all'?students:students.filter(s=>s.grade===grade);
-  const rooms=[...new Set(filtered.map(s=>s.room).filter(Boolean))].sort();
-  const lbRoom=document.getElementById('lb-filter-room');
-  lbRoom.innerHTML='<option value="all">All Rooms</option>'+rooms.map(r=>`<option value="${r}">${r}</option>`).join('');
+function populateLbRooms(){
+  var grade=document.getElementById('lb-grade').value;
+  var scores=getScores();
+  var rooms=[];
+  scores.forEach(function(s){
+    if((grade==='all'||s.grade===grade)&&s.room&&rooms.indexOf(s.room)<0)rooms.push(s.room);
+  });
+  rooms.sort();
+  var sel=document.getElementById('lb-room');
+  var cur=sel.value;
+  sel.innerHTML='<option value="all">All Rooms</option>'+rooms.map(function(r){return '<option value="'+r+'">Room '+r+'</option>';}).join('');
+  if(rooms.indexOf(cur)>=0)sel.value=cur;
 }
+function lbGradeChange(){populateLbRooms();renderLeaderboard();}
 function renderLeaderboard(){
-  const gameF=document.getElementById('lb-filter-game').value;
-  const gradeF=document.getElementById('lb-filter-grade').value;
-  const roomF=document.getElementById('lb-filter-room').value;
-  let scores=getScores();
-  if(gameF!=='all')scores=scores.filter(s=>s.game===gameF);
-  if(gradeF!=='all')scores=scores.filter(s=>s.grade===gradeF);
-  if(roomF!=='all')scores=scores.filter(s=>s.room===roomF);
-  const best={};
-  scores.forEach(s=>{const k=s.studentId+'|'+s.game;if(!best[k]||s.score>best[k].score)best[k]=s;});
-  const sorted=Object.values(best).sort((a,b)=>b.score-a.score).slice(0,10);
-  const cont=document.getElementById('leaderboard-container');
+  var gameF=document.getElementById('lb-game').value;
+  var gradeF=document.getElementById('lb-grade').value;
+  var roomF=document.getElementById('lb-room').value;
+  var scores=getScores();
+  var filtered=scores.filter(function(s){
+    return (gameF==='all'||s.game===gameF)&&(gradeF==='all'||s.grade===gradeF)&&(roomF==='all'||s.room===roomF);
+  });
+  var best={};
+  filtered.forEach(function(s){var k=s.studentId+'|'+s.game;if(!best[k]||s.score>best[k].score)best[k]=s;});
+  var sorted=Object.values(best).sort(function(a,b){return b.score-a.score;}).slice(0,10);
+  var cont=document.getElementById('lb-container');
   if(!sorted.length){cont.innerHTML='<div style="text-align:center;color:var(--text3);padding:20px;font-size:.9rem">No scores found. Play a game first!</div>';return;}
-  cont.innerHTML=sorted.map((s,i)=>{
-    const rc=i===0?'rank-1':i===1?'rank-2':i===2?'rank-3':'rank-other';
-    const medal=i===0?'🥇':i===1?'🥈':i===2?'🥉':i+1;
-    const roomTxt=s.room?` / Room ${s.room}`:'';
-    return `<div class="lb-row">
-      <div class="lb-rank ${rc}">${medal}</div>
-      <div style="flex:1">
-        <div style="font-weight:700;font-size:.88rem">${s.name||s.studentId} <span style="color:var(--text3);font-size:.75rem">(${s.studentId})</span></div>
-        <div style="font-size:.73rem;color:var(--text3)">${s.grade}${roomTxt} · ${s.game}</div>
-      </div>
-      <div>
-        <div style="font-weight:800;color:var(--accent);font-size:.98rem">${s.score.toLocaleString()}</div>
-        <div style="font-size:.72rem;color:var(--text3)">${s.date}</div>
-      </div>
-    </div>`;
+  cont.innerHTML=sorted.map(function(s,i){
+    var rc=i===0?'rank-1':i===1?'rank-2':i===2?'rank-3':'rank-other';
+    var medal=i===0?'&#129351;':i===1?'&#129352;':i===2?'&#129353;':String(i+1);
+    var rm=s.room?' / Room '+s.room:'';
+    return '<div class="lb-row">'
+      +'<div class="lb-rank '+rc+'">'+medal+'</div>'
+      +'<div style="flex:1"><div style="font-weight:700;font-size:.88rem">'+htmlEsc(s.name||s.studentId)+' <span style="color:var(--text3);font-size:.75rem">('+htmlEsc(s.studentId)+')</span></div>'
+      +'<div style="font-size:.73rem;color:var(--text3)">'+htmlEsc(s.grade)+rm+' &middot; '+htmlEsc(s.game)+'</div></div>'
+      +'<div><div style="font-weight:800;color:var(--accent);font-size:.98rem">'+s.score.toLocaleString()+'</div>'
+      +'<div style="font-size:.72rem;color:var(--text3)">'+s.date+'</div></div>'
+      +'</div>';
   }).join('');
 }
 
-// ============================================================
-// WORD QUEST RPG
-// ============================================================
-const MONSTERS=[
-  {name:'Goblin',emoji:'👺',hp:60,atk:15,reward:100},
-  {name:'Slime',emoji:'🟢',hp:40,atk:10,reward:80},
-  {name:'Skeleton',emoji:'💀',hp:80,atk:20,reward:130},
-  {name:'Dragon',emoji:'🐉',hp:150,atk:35,reward:300},
-  {name:'Witch',emoji:'🧙',hp:90,atk:25,reward:180},
-  {name:'Ghost',emoji:'👻',hp:70,atk:18,reward:120},
-  {name:'Orc',emoji:'👹',hp:100,atk:28,reward:200},
-  {name:'Vampire',emoji:'🧛',hp:110,atk:22,reward:210},
+// ===== GAME =====
+var MONSTERS=[
+  {name:'Goblin',emoji:'&#128122;',hp:60,atk:15,reward:100},
+  {name:'Slime',emoji:'&#129981;',hp:40,atk:10,reward:80},
+  {name:'Skeleton',emoji:'&#128128;',hp:80,atk:20,reward:130},
+  {name:'Dragon',emoji:'&#128009;',hp:150,atk:35,reward:300},
+  {name:'Witch',emoji:'&#129497;',hp:90,atk:25,reward:180},
+  {name:'Ghost',emoji:'&#128123;',hp:70,atk:18,reward:120},
+  {name:'Orc',emoji:'&#128121;',hp:100,atk:28,reward:200},
+  {name:'Vampire',emoji:'&#129499;',hp:110,atk:22,reward:210},
 ];
-const QUESTIONS=[
-  {type:'vocab',word:'Apple',choices:['A fruit (red/green)','A vegetable','A type of bread','A drink'],answer:'A fruit (red/green)',hint:'Keeps the doctor away!'},
+var QUESTIONS=[
+  {type:'vocab',word:'Apple',choices:['A red or green fruit','A vegetable','A type of bread','A drink'],answer:'A red or green fruit',hint:'One a day keeps the doctor away!'},
   {type:'vocab',word:'Book',choices:['You read it','You eat it','You wear it','You drive it'],answer:'You read it',hint:'Found in a library'},
   {type:'vocab',word:'School',choices:['A place to learn','A place to sleep','A place to eat','A type of fish'],answer:'A place to learn',hint:'Students go here every day'},
-  {type:'vocab',word:'Beautiful',choices:['Very pretty','Very ugly','Very fast','Very strong'],answer:'Very pretty',hint:'An adjective about appearance'},
-  {type:'vocab',word:'Friend',choices:['Someone you like','An enemy','A teacher','A doctor'],answer:'Someone you like',hint:'You enjoy spending time with them'},
-  {type:'vocab',word:'Happy',choices:['Feeling great joy','Feeling angry','Feeling sad','Feeling scared'],answer:'Feeling great joy',hint:'The opposite of sad'},
+  {type:'vocab',word:'Beautiful',choices:['Very pretty','Very ugly','Very fast','Very strong'],answer:'Very pretty',hint:'Adjective about appearance'},
+  {type:'vocab',word:'Friend',choices:['Someone you like','An enemy','A teacher','A doctor'],answer:'Someone you like',hint:'You enjoy spending time together'},
+  {type:'vocab',word:'Happy',choices:['Feeling great joy','Feeling angry','Feeling sad','Feeling scared'],answer:'Feeling great joy',hint:'Opposite of sad'},
   {type:'vocab',word:'Run',choices:['Move fast on foot','Sleep deeply','Eat quickly','Look carefully'],answer:'Move fast on foot',hint:'Faster than walking'},
   {type:'vocab',word:'Mountain',choices:['A very tall landform','An ocean','A flat field','A city'],answer:'A very tall landform',hint:'Often has snow at the top'},
-  {type:'vocab',word:'Teacher',choices:['Helps students learn','Fixes cars','Cooks food','Fights fires'],answer:'Helps students learn',hint:'Works in a school or classroom'},
-  {type:'vocab',word:'Water',choices:['A liquid we drink','A type of food','A gas in the sky','A kind of rock'],answer:'A liquid we drink',hint:'H₂O — essential for life'},
-  {type:'grammar',word:'She ___ a student.',choices:['is','are','am','be'],answer:'is',hint:'Subject = She (singular 3rd person)'},
-  {type:'grammar',word:'They ___ happy.',choices:['is','are','am','be'],answer:'are',hint:'Subject = They (plural)'},
-  {type:'grammar',word:'I ___ 13 years old.',choices:['is','are','am','be'],answer:'am',hint:'Subject = I → always use "am"'},
-  {type:'grammar',word:'He ___ to school yesterday.',choices:['go','goes','went','going'],answer:'went',hint:'Yesterday → Past Tense of "go"'},
+  {type:'vocab',word:'Teacher',choices:['Helps students learn','Fixes cars','Cooks food','Fights fires'],answer:'Helps students learn',hint:'Works in a school'},
+  {type:'vocab',word:'Water',choices:['A liquid we drink','A type of food','A gas','A kind of rock'],answer:'A liquid we drink',hint:'H2O - essential for life'},
+  {type:'grammar',word:'She ___ a student.',choices:['is','are','am','be'],answer:'is',hint:'She = singular 3rd person'},
+  {type:'grammar',word:'They ___ happy.',choices:['is','are','am','be'],answer:'are',hint:'They = plural'},
+  {type:'grammar',word:'I ___ 13 years old.',choices:['is','are','am','be'],answer:'am',hint:'I always uses "am"'},
+  {type:'grammar',word:'He ___ to school yesterday.',choices:['go','goes','went','going'],answer:'went',hint:'Yesterday = Past Tense'},
   {type:'grammar',word:'We ___ eating right now.',choices:['is','are','am','be'],answer:'are',hint:'We + Present Continuous'},
-  {type:'grammar',word:'___ you like cats?',choices:['Do','Does','Is','Are'],answer:'Do',hint:'Question with "you" → use Do'},
-  {type:'grammar',word:'She ___ not know him.',choices:['do','does','is','has'],answer:'does',hint:'She (singular) → Does'},
+  {type:'grammar',word:'___ you like cats?',choices:['Do','Does','Is','Are'],answer:'Do',hint:'Question with "you" uses Do'},
+  {type:'grammar',word:'She ___ not know him.',choices:['do','does','is','has'],answer:'does',hint:'She (singular) uses Does'},
   {type:'grammar',word:'I have ___ my homework.',choices:['do','did','done','doing'],answer:'done',hint:'Present Perfect: have + V3'},
-  {type:'grammar',word:'The cat ___ on the table.',choices:['sit','sits','sat','sitting'],answer:'sits',hint:'The cat (singular 3rd) → add -s'},
+  {type:'grammar',word:'The cat ___ on the table.',choices:['sit','sits','sat','sitting'],answer:'sits',hint:'Singular subject adds -s'},
   {type:'grammar',word:'___ he playing football now?',choices:['Do','Does','Is','Are'],answer:'Is',hint:'Present Continuous Question with He'},
-  {type:'vocab',word:'Generous',choices:['Willing to give freely','Very selfish','Easily angered','Very shy'],answer:'Willing to give freely',hint:'The opposite of selfish'},
+  {type:'vocab',word:'Generous',choices:['Willing to give freely','Very selfish','Easily angered','Very shy'],answer:'Willing to give freely',hint:'Opposite of selfish'},
   {type:'vocab',word:'Enormous',choices:['Extremely large','Very small','Very beautiful','Very fast'],answer:'Extremely large',hint:'Even bigger than huge'},
   {type:'vocab',word:'Curious',choices:['Eager to know things','Feeling bored','Very brave','Very lazy'],answer:'Eager to know things',hint:'Curiosity killed the cat!'},
 ];
-let gameState={};
+var GS={};
 
 function startGame(gameId,gradeId){
-  if(gameId==='word-quest'){initWordQuest(gradeId);showScreen('game-screen');document.getElementById('navbar').style.display='flex';}
+  if(gameId==='word-quest'){initWordQuest(gradeId);}
 }
 function initWordQuest(gradeId){
-  const shuffled=[...QUESTIONS].sort(()=>Math.random()-.5);
-  gameState={
-    gradeId,questions:shuffled,qIndex:0,totalQ:Math.min(15,shuffled.length),
+  var shuffled=QUESTIONS.slice().sort(function(){return Math.random()-.5;});
+  GS={
+    gradeId:gradeId,questions:shuffled,qIndex:0,totalQ:Math.min(15,shuffled.length),
     score:0,wave:1,streak:0,maxStreak:0,correct:0,wrong:0,
     playerHp:100,maxPlayerHp:100,monster:null,monsterHp:0,monstersDefeated:0,
-    powerups:{hint:2,shield:1,double:1},shieldActive:false,doubleActive:false,phase:'battle',
+    powerups:{hint:2,shield:1,double:1},shieldActive:false,doubleActive:false,phase:'battle'
   };
   nextMonster();
+  showScreen('game-screen');
+  document.getElementById('navbar').style.display='flex';
   document.getElementById('game-title-bar').textContent='⚔️ Word Quest RPG';
   renderGameUI();
 }
 function nextMonster(){
-  const m=MONSTERS[gameState.monstersDefeated%MONSTERS.length];
-  const scale=1+(gameState.wave-1)*0.3;
-  gameState.monster={...m,hp:Math.round(m.hp*scale)};
-  gameState.monsterHp=gameState.monster.hp;
-  gameState.monster.maxHp=gameState.monster.hp;
+  var m=MONSTERS[GS.monstersDefeated%MONSTERS.length];
+  var scale=1+(GS.wave-1)*0.3;
+  GS.monster={name:m.name,emoji:m.emoji,hp:Math.round(m.hp*scale),atk:m.atk,reward:m.reward};
+  GS.monster.maxHp=GS.monster.hp;
+  GS.monsterHp=GS.monster.hp;
 }
 function renderGameUI(){
-  const gs=gameState;
-  if(gs.phase==='result'){renderResult();return;}
-  document.getElementById('stat-score').textContent=gs.score.toLocaleString();
-  document.getElementById('stat-level').textContent=gs.wave;
-  document.getElementById('stat-streak').textContent=gs.streak;
-  const q=gs.questions[gs.qIndex];
-  const plPct=Math.max(0,(gs.playerHp/gs.maxPlayerHp)*100);
-  const mnPct=Math.max(0,(gs.monsterHp/gs.monster.maxHp)*100);
-  const plClass=plPct>60?'good':plPct>30?'medium':'';
-  const qProg=Math.round((gs.qIndex/gs.totalQ)*100);
-  const shuffledChoices=[...q.choices].sort(()=>Math.random()-.5);
-  document.getElementById('game-body').innerHTML=`
-    <div class="progress-bar"><div class="progress-fill" style="width:${qProg}%"></div></div>
-    <div style="display:flex;justify-content:space-between;font-size:.78rem;color:var(--text3);margin-bottom:16px">
-      <span>Question ${gs.qIndex+1} of ${gs.totalQ}</span>
-      <span>Monster #${gs.monstersDefeated+1}</span>
-    </div>
-    <div class="battle-arena">
-      <div class="monster-side">
-        <div class="monster-box">
-          <div class="monster-name">${gs.monster.name}</div>
-          <div class="monster-display" id="monster-emoji">${gs.monster.emoji}</div>
-          <div class="hp-row"><span style="font-size:.73rem;color:var(--text3)">HP</span>
-            <div class="hp-bar"><div class="hp-fill" id="monster-hp-fill" style="width:${mnPct}%"></div></div>
-            <span class="hp-label" style="color:var(--danger)">${gs.monsterHp}/${gs.monster.maxHp}</span></div>
-          <div style="font-size:.76rem;color:var(--text3);margin-top:6px">⚔️ ATK ${gs.monster.atk} · 💎 ${gs.monster.reward} pts</div>
-        </div>
-      </div>
-      <div class="player-side">
-        <div class="player-box">
-          <div class="player-name">Warrior ${gs.gradeId}</div>
-          <div class="player-avatar" id="player-avatar">🧙‍♂️</div>
-          <div class="hp-row"><span style="font-size:.73rem;color:var(--text3)">HP</span>
-            <div class="hp-bar"><div class="hp-fill ${plClass}" id="player-hp-fill" style="width:${plPct}%"></div></div>
-            <span class="hp-label" style="color:var(--success)">${gs.playerHp}/${gs.maxPlayerHp}</span></div>
-          ${gs.shieldActive?'<div style="margin-top:8px;font-size:.78rem;color:var(--secondary)">🛡️ Shield Active!</div>':''}
-          ${gs.doubleActive?'<div style="margin-top:4px;font-size:.78rem;color:var(--accent)">⚡ Double Damage!</div>':''}
-          <div style="margin-top:10px;font-size:.76rem;color:var(--text3)">🔥 Streak: ${gs.streak} | ✅ ${gs.correct} ❌ ${gs.wrong}</div>
-        </div>
-      </div>
-    </div>
-    <div class="powerups">
-      <button class="powerup-btn" id="pu-hint" onclick="usePowerup('hint')" ${gs.powerups.hint<=0?'disabled':''}>
-        💡 Hint <span class="powerup-count">${gs.powerups.hint}</span></button>
-      <button class="powerup-btn" id="pu-shield" onclick="usePowerup('shield')" ${gs.powerups.shield<=0||gs.shieldActive?'disabled':''}>
-        🛡️ Shield <span class="powerup-count">${gs.powerups.shield}</span></button>
-      <button class="powerup-btn" id="pu-double" onclick="usePowerup('double')" ${gs.powerups.double<=0||gs.doubleActive?'disabled':''}>
-        ⚡ Double <span class="powerup-count">${gs.powerups.double}</span></button>
-    </div>
-    <div class="question-box">
-      <div style="text-align:center;font-size:.72rem;color:${q.type==='grammar'?'#A29BFE':'#00CEC9'};font-weight:800;letter-spacing:1px;margin-bottom:8px">${q.type==='grammar'?'📝 GRAMMAR':'📚 VOCABULARY'}</div>
-      <div class="question-word">${q.word}</div>
-      <div class="question-text">${q.type==='vocab'?'What does this word mean?':'Fill in the blank:'}</div>
-      <div id="hint-text" style="display:none;text-align:center;color:var(--text3);font-size:.8rem;margin-top:6px">💡 ${q.hint}</div>
-    </div>
-    <div class="choices" id="choices-container">
-      ${shuffledChoices.map(c=>`<button class="choice-btn" onclick="selectAnswer(${JSON.stringify(c)},${JSON.stringify(q.answer)},this)">${c}</button>`).join('')}
-    </div>
-  `;
+  if(GS.phase==='result'){renderResult();return;}
+  document.getElementById('stat-score').textContent=GS.score.toLocaleString();
+  document.getElementById('stat-level').textContent=GS.wave;
+  document.getElementById('stat-streak').textContent=GS.streak;
+  var q=GS.questions[GS.qIndex];
+  var plPct=Math.max(0,(GS.playerHp/GS.maxPlayerHp)*100);
+  var mnPct=Math.max(0,(GS.monsterHp/GS.monster.maxHp)*100);
+  var plClass=plPct>60?'good':plPct>30?'medium':'';
+  var qProg=Math.round((GS.qIndex/GS.totalQ)*100);
+  var choicesCopy=q.choices.slice().sort(function(){return Math.random()-.5;});
+  var choiceHTML=choicesCopy.map(function(c,i){
+    return '<button class="choice-btn" data-choice="'+encodeURIComponent(c)+'" data-answer="'+encodeURIComponent(q.answer)+'">'+htmlEsc(c)+'</button>';
+  }).join('');
+  document.getElementById('game-body').innerHTML=
+    '<div class="progress-bar"><div class="progress-fill" style="width:'+qProg+'%"></div></div>'
+    +'<div style="display:flex;justify-content:space-between;font-size:.78rem;color:var(--text3);margin-bottom:16px">'
+    +'<span>Question '+(GS.qIndex+1)+' of '+GS.totalQ+'</span><span>Monster #'+(GS.monstersDefeated+1)+'</span></div>'
+    +'<div class="battle-arena">'
+    +'<div class="monster-side"><div class="monster-box">'
+    +'<div class="monster-name">'+GS.monster.name+'</div>'
+    +'<div class="monster-display" id="mon-emoji">'+GS.monster.emoji+'</div>'
+    +'<div class="hp-row"><span style="font-size:.73rem;color:var(--text3)">HP</span>'
+    +'<div class="hp-bar"><div class="hp-fill" id="mon-hp" style="width:'+mnPct+'%"></div></div>'
+    +'<span class="hp-label" style="color:var(--danger)">'+GS.monsterHp+'/'+GS.monster.maxHp+'</span></div>'
+    +'<div style="font-size:.76rem;color:var(--text3);margin-top:6px">&#9876;&#65039; ATK '+GS.monster.atk+' &middot; &#128142; '+GS.monster.reward+' pts</div>'
+    +'</div></div>'
+    +'<div class="player-side"><div class="player-box">'
+    +'<div class="player-name">Warrior '+GS.gradeId+'</div>'
+    +'<div class="player-avatar" id="pl-avatar">&#129497;&#8205;&#9794;&#65039;</div>'
+    +'<div class="hp-row"><span style="font-size:.73rem;color:var(--text3)">HP</span>'
+    +'<div class="hp-bar"><div class="hp-fill '+plClass+'" id="pl-hp" style="width:'+plPct+'%"></div></div>'
+    +'<span class="hp-label" style="color:var(--success)">'+GS.playerHp+'/'+GS.maxPlayerHp+'</span></div>'
+    +(GS.shieldActive?'<div style="margin-top:8px;font-size:.78rem;color:var(--secondary)">&#128737;&#65039; Shield Active!</div>':'')
+    +(GS.doubleActive?'<div style="margin-top:4px;font-size:.78rem;color:var(--accent)">&#9889; Double Damage!</div>':'')
+    +'<div style="margin-top:10px;font-size:.76rem;color:var(--text3)">&#128293; Streak: '+GS.streak+' | &#9989; '+GS.correct+' &#10060; '+GS.wrong+'</div>'
+    +'</div></div></div>'
+    +'<div class="powerups">'
+    +'<button class="powerup-btn" onclick="usePowerup(\'hint\')" '+(GS.powerups.hint<=0?'disabled':'')+'>&#128161; Hint <span class="powerup-count">'+GS.powerups.hint+'</span></button>'
+    +'<button class="powerup-btn" onclick="usePowerup(\'shield\')" '+(GS.powerups.shield<=0||GS.shieldActive?'disabled':'')+'>&#128737;&#65039; Shield <span class="powerup-count">'+GS.powerups.shield+'</span></button>'
+    +'<button class="powerup-btn" onclick="usePowerup(\'double\')" '+(GS.powerups.double<=0||GS.doubleActive?'disabled':'')+'>&#9889; Double <span class="powerup-count">'+GS.powerups.double+'</span></button>'
+    +'</div>'
+    +'<div class="question-box">'
+    +'<div style="text-align:center;font-size:.72rem;color:'+(q.type==='grammar'?'#A29BFE':'#00CEC9')+';font-weight:800;letter-spacing:1px;margin-bottom:8px">'+(q.type==='grammar'?'&#128221; GRAMMAR':'&#128218; VOCABULARY')+'</div>'
+    +'<div class="question-word">'+htmlEsc(q.word)+'</div>'
+    +'<div class="question-text">'+(q.type==='vocab'?'What does this word mean?':'Fill in the blank:')+'</div>'
+    +'<div id="hint-box" style="display:none;text-align:center;color:var(--text3);font-size:.8rem;margin-top:6px">&#128161; '+htmlEsc(q.hint)+'</div>'
+    +'</div>'
+    +'<div class="choices" id="choices-wrap">'+choiceHTML+'</div>';
+  // Attach click handlers after render
+  document.getElementById('choices-wrap').addEventListener('click',function(e){
+    var btn=e.target.closest('.choice-btn');
+    if(!btn||btn.disabled)return;
+    var choice=decodeURIComponent(btn.dataset.choice);
+    var answer=decodeURIComponent(btn.dataset.answer);
+    selectAnswer(btn,choice,answer);
+  });
 }
+
 function usePowerup(type){
-  const gs=gameState;
   if(type==='hint'){
-    if(gs.powerups.hint<=0)return;
-    gs.powerups.hint--;
-    document.getElementById('hint-text').style.display='block';
-    document.getElementById('pu-hint').disabled=true;
-    document.querySelector('#pu-hint .powerup-count').textContent=gs.powerups.hint;
+    if(GS.powerups.hint<=0)return;
+    GS.powerups.hint--;
+    var hb=document.getElementById('hint-box');if(hb)hb.style.display='block';
+    document.querySelectorAll('.powerup-btn').forEach(function(b){if(b.textContent.indexOf('Hint')>=0)b.disabled=true;});
   } else if(type==='shield'){
-    if(gs.powerups.shield<=0||gs.shieldActive)return;
-    gs.powerups.shield--;gs.shieldActive=true;
-    document.getElementById('pu-shield').disabled=true;
-    document.querySelector('#pu-shield .powerup-count').textContent=gs.powerups.shield;
+    if(GS.powerups.shield<=0||GS.shieldActive)return;
+    GS.powerups.shield--;GS.shieldActive=true;
     renderGameUI();
   } else if(type==='double'){
-    if(gs.powerups.double<=0||gs.doubleActive)return;
-    gs.powerups.double--;gs.doubleActive=true;
-    document.getElementById('pu-double').disabled=true;
-    document.querySelector('#pu-double .powerup-count').textContent=gs.powerups.double;
+    if(GS.powerups.double<=0||GS.doubleActive)return;
+    GS.powerups.double--;GS.doubleActive=true;
     renderGameUI();
   }
 }
-function selectAnswer(choice,answer,btn){
-  const gs=gameState;
-  document.querySelectorAll('.choice-btn').forEach(b=>b.disabled=true);
-  const isCorrect=choice===answer;
+
+function selectAnswer(btn,choice,answer){
+  document.querySelectorAll('.choice-btn').forEach(function(b){b.disabled=true;});
+  var isCorrect=choice===answer;
   if(isCorrect){
-    btn.classList.add('correct');gs.streak++;gs.correct++;
-    if(gs.streak>gs.maxStreak)gs.maxStreak=gs.streak;
-    let dmg=Math.round(20+gs.streak*5);
-    if(gs.doubleActive){dmg*=2;gs.doubleActive=false;}
-    gs.monsterHp=Math.max(0,gs.monsterHp-dmg);
-    gs.score+=50+gs.streak*10;
-    showDamage('-'+dmg,true);animateMonster();
-    const fill=document.getElementById('monster-hp-fill');
-    if(fill)fill.style.width=((gs.monsterHp/gs.monster.maxHp)*100)+'%';
-    showToast('✅ Correct! +'+dmg+' damage','success');
+    btn.classList.add('correct');
+    GS.streak++;GS.correct++;
+    if(GS.streak>GS.maxStreak)GS.maxStreak=GS.streak;
+    var dmg=Math.round(20+GS.streak*5);
+    if(GS.doubleActive){dmg*=2;GS.doubleActive=false;}
+    GS.monsterHp=Math.max(0,GS.monsterHp-dmg);
+    GS.score+=50+GS.streak*10;
+    showDmg('-'+dmg,true);animMon();
+    var mh=document.getElementById('mon-hp');
+    if(mh)mh.style.width=((GS.monsterHp/GS.monster.maxHp)*100)+'%';
+    showToast('Correct! +'+dmg+' damage','success');
   } else {
     btn.classList.add('wrong');
-    document.querySelectorAll('.choice-btn').forEach(b=>{if(b.textContent.trim()===answer)b.classList.add('correct');});
-    gs.streak=0;gs.wrong++;
-    let dmg=gs.monster.atk;
-    if(gs.shieldActive){dmg=0;gs.shieldActive=false;showToast('🛡️ Shield blocked the attack!','success');}
-    else{gs.playerHp=Math.max(0,gs.playerHp-dmg);showToast('❌ Wrong! Monster attacks for -'+dmg+' HP','error');}
-    if(dmg>0)showDamage('-'+dmg,false);
-    animatePlayer();
-    const fill=document.getElementById('player-hp-fill');
-    if(fill){const p=(gs.playerHp/gs.maxPlayerHp)*100;fill.style.width=p+'%';fill.className='hp-fill'+(p>60?' good':p>30?' medium':'');}
+    document.querySelectorAll('.choice-btn').forEach(function(b){if(b.textContent.trim()===answer)b.classList.add('correct');});
+    GS.streak=0;GS.wrong++;
+    var dmg2=GS.monster.atk;
+    if(GS.shieldActive){dmg2=0;GS.shieldActive=false;showToast('Shield blocked the attack!','success');}
+    else{GS.playerHp=Math.max(0,GS.playerHp-dmg2);showToast('Wrong! Monster attacks -'+dmg2+' HP','error');}
+    if(dmg2>0)showDmg('-'+dmg2,false);
+    animPl();
+    var ph=document.getElementById('pl-hp');
+    if(ph){var p=(GS.playerHp/GS.maxPlayerHp)*100;ph.style.width=p+'%';ph.className='hp-fill'+(p>60?' good':p>30?' medium':'');}
   }
-  setTimeout(()=>{
-    if(gs.monsterHp<=0){
-      gs.score+=gs.monster.reward;gs.monstersDefeated++;
-      gs.wave=Math.floor(gs.monstersDefeated/3)+1;
-      gs.maxPlayerHp=Math.min(100+gs.monstersDefeated*5,200);
-      gs.playerHp=Math.min(gs.playerHp+20,gs.maxPlayerHp);
-      if(gs.monstersDefeated%3===0){gs.powerups.hint++;gs.powerups.shield++;}
+  setTimeout(function(){
+    if(GS.monsterHp<=0){
+      GS.score+=GS.monster.reward;GS.monstersDefeated++;
+      GS.wave=Math.floor(GS.monstersDefeated/3)+1;
+      GS.maxPlayerHp=Math.min(100+GS.monstersDefeated*5,200);
+      GS.playerHp=Math.min(GS.playerHp+20,GS.maxPlayerHp);
+      if(GS.monstersDefeated%3===0){GS.powerups.hint++;GS.powerups.shield++;}
     }
-    if(gs.playerHp<=0){gs.phase='result';renderResult();return;}
-    gs.qIndex++;
-    if(gs.qIndex>=gs.totalQ){gs.phase='result';renderResult();return;}
-    if(gs.monsterHp<=0)nextMonster();
+    if(GS.playerHp<=0){GS.phase='result';renderResult();return;}
+    GS.qIndex++;
+    if(GS.qIndex>=GS.totalQ){GS.phase='result';renderResult();return;}
+    if(GS.monsterHp<=0)nextMonster();
     renderGameUI();
   },1400);
 }
-function showDamage(text,isEnemy){
-  const arena=document.querySelector('.battle-arena');if(!arena)return;
-  const side=isEnemy?arena.querySelector('.monster-side'):arena.querySelector('.player-side');if(!side)return;
-  const d=document.createElement('div');
-  d.className=`damage-float ${isEnemy?'enemy':'player'}`;d.textContent=text;
-  d.style.position='absolute';side.style.position='relative';
-  side.appendChild(d);setTimeout(()=>d.remove(),900);
+
+function showDmg(text,isEnemy){
+  var arena=document.querySelector('.battle-arena');if(!arena)return;
+  var side=isEnemy?arena.querySelector('.monster-side'):arena.querySelector('.player-side');if(!side)return;
+  side.style.position='relative';
+  var d=document.createElement('div');
+  d.className='damage-float '+(isEnemy?'enemy':'player');
+  d.textContent=text;side.appendChild(d);
+  setTimeout(function(){if(d.parentNode)d.parentNode.removeChild(d);},900);
 }
-function animateMonster(){const el=document.getElementById('monster-emoji');if(!el)return;el.style.animation='monsterShake .4s ease';setTimeout(()=>el.style.animation='',400);}
-function animatePlayer(){const el=document.getElementById('player-avatar');if(!el)return;el.style.animation='playerHit .4s ease';setTimeout(()=>el.style.animation='',400);}
-function renderResult(){
-  const gs=gameState;
-  const pct=Math.round((gs.correct/gs.totalQ)*100);
-  const grade=pct>=80?'A':pct>=60?'B':pct>=40?'C':'D';
-  const emoji=pct>=80?'🏆':pct>=60?'⭐':pct>=40?'😊':'💪';
-  const msg=pct>=80?'Outstanding! You are a true Valor!':pct>=60?'Great job! Keep it up!':pct>=40?'Good effort! Practice more!':'Keep training — you will get better!';
-  if(currentUser&&!currentUser.isGuest&&!currentUser.isAdmin){
-    const scores=getScores(),now=new Date();
-    scores.push({
-      studentId:currentUser.id,name:currentUser.name||currentUser.id,
-      grade:currentUser.grade,room:currentUser.room||'',
-      game:'Word Quest RPG',score:gs.score,correct:gs.correct,wrong:gs.wrong,
-      date:now.toLocaleDateString('en-GB'),time:now.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}),
-      ts:now.getTime(),
-    });
-    saveScores(scores);
-    showToast('💾 Score saved!','success');
-  }
-  document.getElementById('game-body').innerHTML=`
-    <div class="result-box">
-      <span class="result-emoji">${emoji}</span>
-      <div class="result-title">${msg}</div>
-      <div style="color:var(--text2);font-size:.88rem;margin-bottom:4px">Grade: <b style="color:var(--accent);font-size:1.2rem">${grade}</b></div>
-      <div class="result-score">${gs.score.toLocaleString()}</div>
-      <div style="color:var(--text3);font-size:.83rem">Total Score</div>
-      <div class="result-details">
-        <div class="result-stat"><div class="result-stat-val" style="color:var(--success)">${gs.correct}</div><div class="result-stat-label">Correct</div></div>
-        <div class="result-stat"><div class="result-stat-val" style="color:var(--danger)">${gs.wrong}</div><div class="result-stat-label">Wrong</div></div>
-        <div class="result-stat"><div class="result-stat-val" style="color:var(--accent)">${gs.maxStreak}</div><div class="result-stat-label">MAX STREAK 🔥</div></div>
-        <div class="result-stat"><div class="result-stat-val" style="color:var(--primary)">${gs.monstersDefeated}</div><div class="result-stat-label">Monsters Defeated</div></div>
-        <div class="result-stat"><div class="result-stat-val" style="color:var(--secondary)">${pct}%</div><div class="result-stat-label">Accuracy</div></div>
-        <div class="result-stat"><div class="result-stat-val">${gs.wave}</div><div class="result-stat-label">Highest Wave</div></div>
-      </div>
-      ${currentUser&&currentUser.isGuest?'<div style="background:rgba(253,203,110,.1);border:1px solid rgba(253,203,110,.3);border-radius:10px;padding:12px;color:var(--accent);font-size:.83rem;margin-bottom:16px">👻 You played as Guest — score not saved.</div>':''}
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px">
-        <button class="btn btn-primary btn-sm" onclick="startGame('word-quest','${gs.gradeId}')">🔄 Play Again</button>
-        <button class="btn btn-secondary btn-sm" onclick="goHome()">🏠 Home</button>
-      </div>
-    </div>
-  `;
+function animMon(){
+  var el=document.getElementById('mon-emoji');if(!el)return;
+  el.style.animation='monsterShake .4s ease';setTimeout(function(){el.style.animation='';},400);
 }
-function confirmLeave(){openModal('leave-modal');}
-// Add student
-function addStudent(){
-  const id=document.getElementById('new-student-id').value.trim();
-  const name=document.getElementById('new-student-name').value.trim();
-  const grade=document.getElementById('new-student-grade').value;
-  const room=document.getElementById('new-student-room').value.trim();
-  const pw=document.getElementById('new-student-pw').value.trim();
-  if(!id||!grade){showToast('Please enter Student ID and Level.','error');return;}
-  const students=getStudents();
-  if(students.find(s=>s.id===id)){showToast('Student ID already exists!','error');return;}
-  students.push({id,name,grade,room,pw});
-  saveStudents(students);
-  ['new-student-id','new-student-name','new-student-room','new-student-pw'].forEach(f=>document.getElementById(f).value='');
-  document.getElementById('new-student-grade').value='';
-  updateGradeFilters();renderStudentTable();
-  showToast('✅ Added student: '+id,'success');
+function animPl(){
+  var el=document.getElementById('pl-avatar');if(!el)return;
+  el.style.animation='playerHit .4s ease';setTimeout(function(){el.style.animation='';},400);
 }
 
+function renderResult(){
+  var pct=Math.round((GS.correct/GS.totalQ)*100);
+  var grade=pct>=80?'A':pct>=60?'B':pct>=40?'C':'D';
+  var emoji=pct>=80?'&#127942;':pct>=60?'&#11088;':pct>=40?'&#128522;':'&#128170;';
+  var msg=pct>=80?'Outstanding! You are a true Valor!':pct>=60?'Great job! Keep it up!':pct>=40?'Good effort! Practice more!':'Keep training - you will improve!';
+  if(CU&&!CU.isGuest&&!CU.isAdmin){
+    var scores=getScores();var now=new Date();
+    scores.push({studentId:CU.id,name:CU.name||CU.id,grade:CU.grade,room:CU.room||'',
+      game:'Word Quest RPG',score:GS.score,correct:GS.correct,wrong:GS.wrong,
+      date:now.toLocaleDateString('en-GB'),time:now.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}),
+      ts:now.getTime()});
+    saveScores(scores);showToast('Score saved!','success');
+  }
+  document.getElementById('game-body').innerHTML=
+    '<div class="result-box">'
+    +'<span class="result-emoji">'+emoji+'</span>'
+    +'<div class="result-title">'+msg+'</div>'
+    +'<div style="color:var(--text2);font-size:.88rem;margin-bottom:4px">Grade: <b style="color:var(--accent);font-size:1.2rem">'+grade+'</b></div>'
+    +'<div class="result-score">'+GS.score.toLocaleString()+'</div>'
+    +'<div style="color:var(--text3);font-size:.83rem">Total Score</div>'
+    +'<div class="result-details">'
+    +'<div class="result-stat"><div class="result-stat-val" style="color:var(--success)">'+GS.correct+'</div><div class="result-stat-label">Correct</div></div>'
+    +'<div class="result-stat"><div class="result-stat-val" style="color:var(--danger)">'+GS.wrong+'</div><div class="result-stat-label">Wrong</div></div>'
+    +'<div class="result-stat"><div class="result-stat-val" style="color:var(--accent)">'+GS.maxStreak+'</div><div class="result-stat-label">MAX STREAK &#128293;</div></div>'
+    +'<div class="result-stat"><div class="result-stat-val" style="color:var(--primary)">'+GS.monstersDefeated+'</div><div class="result-stat-label">Monsters Defeated</div></div>'
+    +'<div class="result-stat"><div class="result-stat-val" style="color:var(--secondary)">'+pct+'%</div><div class="result-stat-label">Accuracy</div></div>'
+    +'<div class="result-stat"><div class="result-stat-val">'+GS.wave+'</div><div class="result-stat-label">Highest Wave</div></div>'
+    +'</div>'
+    +(CU&&CU.isGuest?'<div style="background:rgba(253,203,110,.1);border:1px solid rgba(253,203,110,.3);border-radius:10px;padding:12px;color:var(--accent);font-size:.83rem;margin-bottom:16px">&#128123; You played as Guest - score not saved.</div>':'')
+    +'<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px">'
+    +'<button class="btn btn-primary btn-sm" onclick="startGame(\'word-quest\',\''+GS.gradeId+'\')">&#128260; Play Again</button>'
+    +'<button class="btn btn-secondary btn-sm" onclick="goHome()">&#127968; Home</button>'
+    +'</div></div>';
+}
+
+function confirmLeave(){openModal('leave-modal');}
 function leaveGame(){closeModal('leave-modal');goHome();}
 
-// ============================================================
-// ADMIN FUNCTIONS
-// ============================================================
-function switchAdminTab(tab,btn){
-  document.querySelectorAll('.admin-tab').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.admin-panel').forEach(p=>p.classList.remove('active'));
-  btn.classList.add('active');
+// ===== ADMIN =====
+function switchTab(tab){
+  document.querySelectorAll('.admin-tab').forEach(function(b){b.classList.remove('active');});
+  document.querySelectorAll('.admin-panel').forEach(function(p){p.classList.remove('active');});
+  document.getElementById('tab-btn-'+tab).classList.add('active');
   document.getElementById('admin-tab-'+tab).classList.add('active');
-  if(tab==='scores'){updateGradeFilters();renderScoreTable();}
-  if(tab==='students'){updateGradeFilters();renderStudentTable();}
+  if(tab==='students'){populateGradeDropdowns();renderStudentTable();}
+  if(tab==='scores'){populateGradeDropdowns();renderScoreTable();}
 }
-function updateGradeFilters(){
-  const grades=['P.1','P.2','P.3','P.4','P.5','P.6','M.1','M.2','M.3','M.4','M.5','M.6'];
-  ['grade-filter-student','score-filter-grade'].forEach(id=>{
-    const sel=document.getElementById(id);if(!sel)return;
-    const cur=sel.value;
-    sel.innerHTML='<option value="all">All Levels</option>'+grades.map(g=>`<option value="${g}">${g}</option>`).join('');
+
+function populateGradeDropdowns(){
+  var grades=['P.1','P.2','P.3','P.4','P.5','P.6','M.1','M.2','M.3','M.4','M.5','M.6'];
+  ['sf-grade','scf-grade'].forEach(function(id){
+    var sel=document.getElementById(id);if(!sel)return;
+    var cur=sel.value;
+    sel.innerHTML='<option value="all">All Levels</option>'+grades.map(function(g){return '<option value="'+g+'">'+g+'</option>';}).join('');
     if(cur)sel.value=cur;
   });
-  updateRoomFilterForStudents();
-  updateRoomFilterForScores();
+  updateSfRooms();updateScfRooms();
 }
-// Dynamic room filter — students
-function onStudentFilterChange(){
-  updateRoomFilterForStudents();
-  renderStudentTable();
+function sfGradeChange(){updateSfRooms();renderStudentTable();}
+function updateSfRooms(){
+  var grade=document.getElementById('sf-grade').value;
+  var students=getStudents();
+  var rooms=[];
+  students.forEach(function(s){if((grade==='all'||s.grade===grade)&&s.room&&rooms.indexOf(s.room)<0)rooms.push(s.room);});
+  rooms.sort();
+  var sel=document.getElementById('sf-room');var cur=sel.value;
+  sel.innerHTML='<option value="all">All Rooms</option>'+rooms.map(function(r){return '<option value="'+r+'">Room '+r+'</option>';}).join('');
+  if(rooms.indexOf(cur)>=0)sel.value=cur; else sel.value='all';
 }
-function updateRoomFilterForStudents(){
-  const students=getStudents();
-  const grade=document.getElementById('grade-filter-student').value;
-  const filtered=grade==='all'?students:students.filter(s=>s.grade===grade);
-  const rooms=[...new Set(filtered.map(s=>s.room).filter(Boolean))].sort();
-  const sel=document.getElementById('room-filter-student');
-  const cur=sel.value;
-  sel.innerHTML='<option value="all">All Rooms</option>'+rooms.map(r=>`<option value="${r}">Room ${r}</option>`).join('');
-  if(rooms.includes(cur))sel.value=cur;
-}
-function onScoreFilterChange(){
-  updateRoomFilterForScores();
-  renderScoreTable();
-}
-function updateRoomFilterForScores(){
-  const scores=getScores();
-  const grade=document.getElementById('score-filter-grade').value;
-  const filtered=grade==='all'?scores:scores.filter(s=>s.grade===grade);
-  const rooms=[...new Set(filtered.map(s=>s.room).filter(Boolean))].sort();
-  const sel=document.getElementById('score-filter-room');
-  const cur=sel.value;
-  sel.innerHTML='<option value="all">All Rooms</option>'+rooms.map(r=>`<option value="${r}">Room ${r}</option>`).join('');
-  if(rooms.includes(cur))sel.value=cur;
+function scfGradeChange(){updateScfRooms();renderScoreTable();}
+function updateScfRooms(){
+  var grade=document.getElementById('scf-grade').value;
+  var scores=getScores();
+  var rooms=[];
+  scores.forEach(function(s){if((grade==='all'||s.grade===grade)&&s.room&&rooms.indexOf(s.room)<0)rooms.push(s.room);});
+  rooms.sort();
+  var sel=document.getElementById('scf-room');var cur=sel.value;
+  sel.innerHTML='<option value="all">All Rooms</option>'+rooms.map(function(r){return '<option value="'+r+'">Room '+r+'</option>';}).join('');
+  if(rooms.indexOf(cur)>=0)sel.value=cur; else sel.value='all';
 }
 
-// Render student table
-function renderStudentTable(){
-  const students=getStudents();
-  const gradeF=document.getElementById('grade-filter-student').value;
-  const roomF=document.getElementById('room-filter-student').value;
-  let filtered=students;
-  if(gradeF!=='all')filtered=filtered.filter(s=>s.grade===gradeF);
-  if(roomF!=='all')filtered=filtered.filter(s=>s.room===roomF);
-  document.getElementById('student-count-label').textContent=`Student List (${students.length} total, showing ${filtered.length})`;
-  const tbody=document.getElementById('student-tbody');
-  if(!filtered.length){tbody.innerHTML=`<tr><td colspan="7" style="text-align:center;color:var(--text3);padding:24px">No students found.</td></tr>`;return;}
-  tbody.innerHTML=filtered.map((s,i)=>`
-    <tr>
-      <td style="color:var(--text3)">${i+1}</td>
-      <td><b>${s.id}</b></td>
-      <td>${s.name||'-'}</td>
-      <td><span class="tag tag-grade">${s.grade}</span></td>
-      <td style="color:var(--text2)">${s.room||'-'}</td>
-      <td style="color:var(--text3);font-size:.8rem">${s.pw||'None'}</td>
-      <td>
-        <div style="display:flex;gap:6px;justify-content:flex-end">
-          <button class="btn btn-sm" style="background:rgba(108,92,231,.15);color:#A29BFE;border:1px solid rgba(108,92,231,.3);font-size:.76rem" onclick="openEditStudent('${s.id}')">✏️ Edit</button>
-          <button class="btn btn-sm" style="background:rgba(225,112,85,.12);color:#FF8A72;border:1px solid rgba(225,112,85,.3);font-size:.76rem" onclick="deleteStudent('${s.id}')">🗑️ Delete</button>
-        </div>
-      </td>
-    </tr>
-  `).join('');
-}
-
-// Add student
-turn;}
-  const students=getStudents();
-  if(students.find(s=>s.id===id)){showToast('Student ID already exists!','error');return;}
-  students.push({id,name,grade,room,pw});
+function addStudent(){
+  var id=document.getElementById('ns-id').value.trim();
+  var name=document.getElementById('ns-name').value.trim();
+  var grade=document.getElementById('ns-grade').value;
+  var room=document.getElementById('ns-room').value.trim();
+  var pw=document.getElementById('ns-pw').value.trim();
+  if(!id||!grade){showToast('Please enter Student ID and Level.','error');return;}
+  var students=getStudents();
+  for(var i=0;i<students.length;i++){if(students[i].id===id){showToast('Student ID already exists!','error');return;}}
+  students.push({id:id,name:name,grade:grade,room:room,pw:pw});
   saveStudents(students);
-  ['new-student-id','new-student-name','new-student-room','new-student-pw'].forEach(f=>document.getElementById(f).value='');
-  document.getElementById('new-student-grade').value='';
-  updateGradeFilters();renderStudentTable();
-  showToast(`✅ Added student: ${id}`,'success');
+  ['ns-id','ns-name','ns-room','ns-pw'].forEach(function(f){document.getElementById(f).value='';});
+  document.getElementById('ns-grade').value='';
+  updateSfRooms();renderStudentTable();
+  showToast('Added student: '+id,'success');
 }
-// Edit student
 function openEditStudent(id){
-  const s=getStudents().find(x=>x.id===id);if(!s)return;
-  document.getElementById('edit-student-id-orig').value=s.id;
+  var students=getStudents();var s=null;
+  for(var i=0;i<students.length;i++){if(students[i].id===id){s=students[i];break;}}
+  if(!s)return;
+  document.getElementById('edit-orig-id').value=s.id;
   document.getElementById('edit-sid').value=s.id;
-  document.getElementById('edit-name').value=s.name||'';
-  document.getElementById('edit-grade').value=s.grade||'M.1';
-  document.getElementById('edit-room').value=s.room||'';
-  document.getElementById('edit-pw').value=s.pw||'';
+  document.getElementById('edit-sname').value=s.name||'';
+  document.getElementById('edit-sgrade').value=s.grade||'M.1';
+  document.getElementById('edit-sroom').value=s.room||'';
+  document.getElementById('edit-spw').value=s.pw||'';
   openModal('edit-student-modal');
 }
 function saveEditStudent(){
-  const origId=document.getElementById('edit-student-id-orig').value;
-  const newId=document.getElementById('edit-sid').value.trim();
-  const name=document.getElementById('edit-name').value.trim();
-  const grade=document.getElementById('edit-grade').value;
-  const room=document.getElementById('edit-room').value.trim();
-  const pw=document.getElementById('edit-pw').value.trim();
+  var origId=document.getElementById('edit-orig-id').value;
+  var newId=document.getElementById('edit-sid').value.trim();
+  var name=document.getElementById('edit-sname').value.trim();
+  var grade=document.getElementById('edit-sgrade').value;
+  var room=document.getElementById('edit-sroom').value.trim();
+  var pw=document.getElementById('edit-spw').value.trim();
   if(!newId||!grade){showToast('ID and Level are required.','error');return;}
-  let students=getStudents();
-  if(newId!==origId&&students.find(s=>s.id===newId)){showToast('That Student ID already exists.','error');return;}
-  students=students.map(s=>s.id===origId?{id:newId,name,grade,room,pw}:s);
-  saveStudents(students);
-  closeModal('edit-student-modal');
-  updateGradeFilters();renderStudentTable();
-  showToast('✅ Student updated.','success');
+  var students=getStudents();
+  if(newId!==origId){for(var i=0;i<students.length;i++){if(students[i].id===newId){showToast('That ID already exists.','error');return;}}}
+  for(var j=0;j<students.length;j++){if(students[j].id===origId){students[j]={id:newId,name:name,grade:grade,room:room,pw:pw};break;}}
+  saveStudents(students);closeModal('edit-student-modal');
+  updateSfRooms();renderStudentTable();
+  showToast('Student updated.','success');
 }
 function deleteStudent(id){
-  if(!confirm(`Delete student: ${id}?`))return;
-  saveStudents(getStudents().filter(s=>s.id!==id));
-  updateGradeFilters();renderStudentTable();
+  if(!confirm('Delete student: '+id+'?'))return;
+  var s=getStudents().filter(function(x){return x.id!==id;});
+  saveStudents(s);updateSfRooms();renderStudentTable();
   showToast('Student deleted.','success');
 }
 function clearAllStudents(){
   if(!confirm('Delete ALL students? This cannot be undone.'))return;
-  saveStudents([]);updateGradeFilters();renderStudentTable();
+  saveStudents([]);updateSfRooms();renderStudentTable();
   showToast('All students deleted.','success');
 }
-function renderScoreTable(){
-  const scores=getScores().sort((a,b)=>b.ts-a.ts);
-  const gradeF=document.getElementById('score-filter-grade').value;
-  const roomF=document.getElementById('score-filter-room').value;
-  const gameF=document.getElementById('score-filter-game').value;
-  let filtered=scores;
-  if(gradeF!=='all')filtered=filtered.filter(s=>s.grade===gradeF);
-  if(roomF!=='all')filtered=filtered.filter(s=>s.room===roomF);
-  if(gameF!=='all')filtered=filtered.filter(s=>s.game===gameF);
-  const tbody=document.getElementById('score-tbody');
-  if(!filtered.length){tbody.innerHTML=`<tr><td colspan="9" style="text-align:center;color:var(--text3);padding:24px">No scores found.</td></tr>`;return;}
-  tbody.innerHTML=filtered.map((s,i)=>`<tr>
-    <td style="color:var(--text3)">${i+1}</td>
-    <td><b>${s.studentId}</b></td>
-    <td>${s.name||'-'}</td>
-    <td><span class="tag tag-grade">${s.grade}</span></td>
-    <td style="color:var(--text2);font-size:.82rem">${s.room||'-'}</td>
-    <td style="font-size:.8rem">${s.game}</td>
-    <td><span class="score-badge">${s.score.toLocaleString()}</span></td>
-    <td style="font-size:.8rem;color:var(--text2)">✅${s.correct} ❌${s.wrong}</td>
-    <td style="font-size:.76rem;color:var(--text3)">${s.date} ${s.time}</td>
-  </tr>`).join('');
+
+function renderStudentTable(){
+  var students=getStudents();
+  var gf=document.getElementById('sf-grade').value;
+  var rf=document.getElementById('sf-room').value;
+  var filtered=students.filter(function(s){return (gf==='all'||s.grade===gf)&&(rf==='all'||s.room===rf);});
+  document.getElementById('student-count-label').textContent='Student List ('+students.length+' total, showing '+filtered.length+')';
+  var tbody=document.getElementById('student-tbody');
+  if(!filtered.length){tbody.innerHTML='<tr><td colspan="7" style="text-align:center;color:var(--text3);padding:24px">No students found.</td></tr>';return;}
+  tbody.innerHTML=filtered.map(function(s,i){
+    return '<tr>'
+      +'<td style="color:var(--text3)">'+(i+1)+'</td>'
+      +'<td><b>'+htmlEsc(s.id)+'</b></td>'
+      +'<td>'+htmlEsc(s.name||'-')+'</td>'
+      +'<td><span class="tag tag-grade">'+htmlEsc(s.grade)+'</span></td>'
+      +'<td style="color:var(--text2)">'+htmlEsc(s.room||'-')+'</td>'
+      +'<td style="color:var(--text3);font-size:.8rem">'+htmlEsc(s.pw||'None')+'</td>'
+      +'<td><div style="display:flex;gap:6px;justify-content:flex-end">'
+      +'<button class="btn btn-sm" style="background:rgba(108,92,231,.15);color:#A29BFE;border:1px solid rgba(108,92,231,.3);font-size:.76rem" onclick="openEditStudent(\''+htmlEsc(s.id)+'\')">&#9999;&#65039; Edit</button>'
+      +'<button class="btn btn-sm" style="background:rgba(225,112,85,.12);color:#FF8A72;border:1px solid rgba(225,112,85,.3);font-size:.76rem" onclick="deleteStudent(\''+htmlEsc(s.id)+'\')">&#128465;&#65039; Delete</button>'
+      +'</div></td></tr>';
+  }).join('');
 }
+
+function renderScoreTable(){
+  var scores=getScores().sort(function(a,b){return b.ts-a.ts;});
+  var gf=document.getElementById('scf-grade').value;
+  var rf=document.getElementById('scf-room').value;
+  var gmf=document.getElementById('scf-game').value;
+  var filtered=scores.filter(function(s){return (gf==='all'||s.grade===gf)&&(rf==='all'||s.room===rf)&&(gmf==='all'||s.game===gmf);});
+  var tbody=document.getElementById('score-tbody');
+  if(!filtered.length){tbody.innerHTML='<tr><td colspan="9" style="text-align:center;color:var(--text3);padding:24px">No scores found.</td></tr>';return;}
+  tbody.innerHTML=filtered.map(function(s,i){
+    return '<tr>'
+      +'<td style="color:var(--text3)">'+(i+1)+'</td>'
+      +'<td><b>'+htmlEsc(s.studentId)+'</b></td>'
+      +'<td>'+htmlEsc(s.name||'-')+'</td>'
+      +'<td><span class="tag tag-grade">'+htmlEsc(s.grade)+'</span></td>'
+      +'<td style="color:var(--text2);font-size:.82rem">'+htmlEsc(s.room||'-')+'</td>'
+      +'<td style="font-size:.8rem">'+htmlEsc(s.game)+'</td>'
+      +'<td><span class="score-badge">'+s.score.toLocaleString()+'</span></td>'
+      +'<td style="font-size:.8rem;color:var(--text2)">&#9989;'+s.correct+' &#10060;'+s.wrong+'</td>'
+      +'<td style="font-size:.76rem;color:var(--text3)">'+htmlEsc(s.date)+' '+htmlEsc(s.time)+'</td>'
+      +'</tr>';
+  }).join('');
+}
+
 function exportCSV(){
-  const scores=getScores().sort((a,b)=>b.ts-a.ts);
-  const gradeF=document.getElementById('score-filter-grade').value;
-  const roomF=document.getElementById('score-filter-room').value;
-  const gameF=document.getElementById('score-filter-game').value;
-  let filtered=scores;
-  if(gradeF!=='all')filtered=filtered.filter(s=>s.grade===gradeF);
-  if(roomF!=='all')filtered=filtered.filter(s=>s.room===roomF);
-  if(gameF!=='all')filtered=filtered.filter(s=>s.game===gameF);
-  const header='No.,Student ID,Name,Level,Room,Game,Score,Correct,Wrong,Date,Time';
-  const rows=filtered.map((s,i)=>[i+1,s.studentId,s.name,s.grade,s.room||'',s.game,s.score,s.correct,s.wrong,s.date,s.time].join(','));
-  const csv='\uFEFF'+header+'\n'+rows.join('\n');
-  const blob=new Blob([csv],{type:'text/csv;charset=utf-8'});
-  const a=document.createElement('a');
+  var scores=getScores().sort(function(a,b){return b.ts-a.ts;});
+  var gf=document.getElementById('scf-grade').value;
+  var rf=document.getElementById('scf-room').value;
+  var gmf=document.getElementById('scf-game').value;
+  var filtered=scores.filter(function(s){return (gf==='all'||s.grade===gf)&&(rf==='all'||s.room===rf)&&(gmf==='all'||s.game===gmf);});
+  var header='No.,Student ID,Name,Level,Room,Game,Score,Correct,Wrong,Date,Time';
+  var rows=filtered.map(function(s,i){return [i+1,s.studentId,s.name,s.grade,s.room||'',s.game,s.score,s.correct,s.wrong,s.date,s.time].join(',');});
+  var bom='\uFEFF';
+  var csv=bom+header+'\n'+rows.join('\n');
+  var blob=new Blob([csv],{type:'text/csv;charset=utf-8'});
+  var a=document.createElement('a');
   a.href=URL.createObjectURL(blob);
   a.download='EoV_Scores_'+new Date().toISOString().slice(0,10)+'.csv';
   a.click();
-  showToast('📥 CSV exported!','success');
+  showToast('CSV exported!','success');
 }
 function clearAllScores(){
   if(!confirm('Clear ALL scores? This cannot be undone.'))return;
-  saveScores([]);renderScoreTable();
-  showToast('All scores cleared.','success');
+  saveScores([]);renderScoreTable();showToast('All scores cleared.','success');
 }
-function changeAdminPassword(){
-  const old=document.getElementById('old-pw').value;
-  const nw=document.getElementById('new-pw').value;
-  const cf=document.getElementById('confirm-pw').value;
-  const creds=getAdminCreds();
+function changeAdminPw(){
+  var old=document.getElementById('old-pw').value;
+  var nw=document.getElementById('new-pw').value;
+  var cf=document.getElementById('confirm-pw').value;
+  var creds=getAdminCreds();
   if(old!==creds.pass){showToast('Current password is incorrect.','error');return;}
   if(nw!==cf){showToast('New passwords do not match.','error');return;}
   if(nw.length<4){showToast('Password must be at least 4 characters.','error');return;}
   DB.set('admin',{user:creds.user,pass:nw});
-  showToast('✅ Password changed successfully.','success');
-  ['old-pw','new-pw','confirm-pw'].forEach(f=>document.getElementById(f).value='');
+  showToast('Password changed!','success');
+  ['old-pw','new-pw','confirm-pw'].forEach(function(f){document.getElementById(f).value='';});
 }
 function downloadTemplate(){
-  const header='No.,ID,Name,Level,Room,Password';
-  const examples=['1,67001,John Smith,M.1,1,1234','2,67002,Jane Doe,M.1,2,','3,67003,Tom Brown,M.2,1,'];
-  const csv='\uFEFF'+header+'\n'+examples.join('\n');
-  const blob=new Blob([csv],{type:'text/csv;charset=utf-8'});
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(blob);
-  a.download='EoV_Student_Template.csv';
-  a.click();
-  showToast('📋 Template downloaded!','success');
+  var bom='\uFEFF';
+  var header='No.,ID,Name,Level,Room,Password';
+  var ex=['1,67001,John Smith,M.1,1,1234','2,67002,Jane Doe,M.1,2,','3,67003,Tom Brown,M.2,1,'];
+  var csv=bom+header+'\n'+ex.join('\n');
+  var blob=new Blob([csv],{type:'text/csv;charset=utf-8'});
+  var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='EoV_Student_Template.csv';a.click();
+  showToast('Template downloaded!','success');
 }
 function handleFileImport(input){
-  const file=input.files[0];if(!file)return;
-  const ext=file.name.split('.').pop().toLowerCase();
+  var file=input.files[0];if(!file)return;
+  var ext=file.name.split('.').pop().toLowerCase();
   if(ext==='csv'){
-    const reader=new FileReader();
-    reader.onload=e=>parseAndImportCSV(e.target.result);
+    var reader=new FileReader();
+    reader.onload=function(e){parseImportData(e.target.result);};
     reader.readAsText(file,'UTF-8');
   } else if(ext==='xls'||ext==='xlsx'){
-    const loadXLSX=()=>{
-      const reader=new FileReader();
-      reader.onload=e=>{
-        const wb=XLSX.read(new Uint8Array(e.target.result),{type:'array'});
-        const ws=wb.Sheets[wb.SheetNames[0]];
-        parseAndImportCSV(XLSX.utils.sheet_to_csv(ws));
+    var doRead=function(){
+      var r2=new FileReader();
+      r2.onload=function(e){
+        var wb=XLSX.read(new Uint8Array(e.target.result),{type:'array'});
+        var ws=wb.Sheets[wb.SheetNames[0]];
+        parseImportData(XLSX.utils.sheet_to_csv(ws));
       };
-      reader.readAsArrayBuffer(file);
+      r2.readAsArrayBuffer(file);
     };
     if(typeof XLSX==='undefined'){
-      const s=document.createElement('script');
-      s.src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js';
-      s.onload=loadXLSX;document.head.appendChild(s);
-    } else loadXLSX();
+      var sc=document.createElement('script');sc.src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js';sc.onload=doRead;document.head.appendChild(sc);
+    } else doRead();
   } else {
-    showToast('Unsupported file. Use .csv or .xlsx','error');
+    showToast('Use .csv or .xlsx files only.','error');
   }
   input.value='';
 }
-function parseAndImportCSV(text){
-  const lines=text.split(/\r?\n/).filter(l=>l.trim());
-  const students=getStudents();
-  let added=0,skipped=0;
-  lines.forEach((line,idx)=>{
-    const cols=line.split(',').map(c=>c.trim().replace(/^"|"$/g,''));
-    if(idx===0&&(isNaN(cols[0])||cols[0].toLowerCase()==='no'||cols[0].toLowerCase()==='no.'))return;
-    const id=cols[1],name=cols[2],grade=cols[3],room=cols[4]||'',pw=cols[5]||'';
+function parseImportData(text){
+  var lines=text.split(/\r?\n/).filter(function(l){return l.trim();});
+  var students=getStudents();var added=0,skipped=0;
+  lines.forEach(function(line,idx){
+    var cols=line.split(',').map(function(c){return c.trim().replace(/^"|"$/g,'');});
+    // Skip header: if first cell is non-numeric or says "no"
+    if(idx===0&&(isNaN(Number(cols[0]))||cols[0].toLowerCase()==='no'||cols[0].toLowerCase()==='no.'))return;
+    // Format: No, ID, Name, Level, Room, Password
+    var id=cols[1],name=cols[2]||'',grade=cols[3]||'',room=cols[4]||'',pw=cols[5]||'';
     if(!id||!grade)return;
-    if(students.find(s=>s.id===id)){skipped++;return;}
-    students.push({id,name:name||'',grade,room,pw});
-    added++;
+    var exists=false;for(var i=0;i<students.length;i++){if(students[i].id===id){exists=true;break;}}
+    if(exists){skipped++;return;}
+    students.push({id:id,name:name,grade:grade,room:room,pw:pw});added++;
   });
-  saveStudents(students);
-  updateGradeFilters();renderStudentTable();
-  showToast(`✅ Imported: ${added} | Skipped: ${skipped}`,'success');
+  saveStudents(students);updateSfRooms();renderStudentTable();
+  showToast('Imported: '+added+' | Skipped: '+skipped,'success');
 }
-function importCSVText(){
-  const text=document.getElementById('csv-import').value.trim();
-  if(!text){showToast('Please paste CSV data first.','error');return;}
-  // Text paste format: ID,Name,Level,Room,Password (no No. column)
-  const lines=text.split(/\n/).filter(l=>l.trim());
-  const students=getStudents();
-  let added=0,skipped=0;
-  lines.forEach(line=>{
-    const cols=line.split(',').map(c=>c.trim());
-    const [id,name,grade,room,pw]=cols;
+function importPastedCSV(){
+  var text=document.getElementById('csv-paste').value.trim();
+  if(!text){showToast('Please paste some data first.','error');return;}
+  // Pasted format: ID, Name, Level, Room, Password (no No. column)
+  var lines=text.split(/\n/).filter(function(l){return l.trim();});
+  var students=getStudents();var added=0,skipped=0;
+  lines.forEach(function(line){
+    var cols=line.split(',').map(function(c){return c.trim();});
+    var id=cols[0],name=cols[1]||'',grade=cols[2]||'',room=cols[3]||'',pw=cols[4]||'';
     if(!id||!grade)return;
-    if(students.find(s=>s.id===id)){skipped++;return;}
-    students.push({id,name:name||'',grade,room:room||'',pw:pw||''});
-    added++;
+    var exists=false;for(var i=0;i<students.length;i++){if(students[i].id===id){exists=true;break;}}
+    if(exists){skipped++;return;}
+    students.push({id:id,name:name,grade:grade,room:room,pw:pw});added++;
   });
-  saveStudents(students);
-  updateGradeFilters();renderStudentTable();
-  document.getElementById('csv-import').value='';
-  showToast(`✅ Imported: ${added} | Skipped: ${skipped}`,'success');
+  saveStudents(students);updateSfRooms();renderStudentTable();
+  document.getElementById('csv-paste').value='';
+  showToast('Imported: '+added+' | Skipped: '+skipped,'success');
 }
-function showAlert(id,msg){const el=document.getElementById(id);el.textContent=msg;el.style.display='block';}
-function hideAlert(id){const el=document.getElementById(id);if(el)el.style.display='none';}
-function openModal(id){document.getElementById(id).classList.add('open');}
-function closeModal(id){document.getElementById(id).classList.remove('open');}
-let toastTimer;
-function showToast(msg,type='success'){
-  const t=document.getElementById('toast');
-  t.textContent=msg;t.className='toast '+type;t.classList.add('show');
-  clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2800);
+
+// ===== UTILS =====
+function htmlEsc(s){
+  if(!s)return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 }
-document.getElementById('student-id-input').addEventListener('keydown',e=>{if(e.key==='Enter')doStudentLogin();});
-document.getElementById('admin-pass-inp').addEventListener('keydown',e=>{if(e.key==='Enter')confirmAdminLogin();});
+function showAlert(id,msg){var el=document.getElementById(id);if(el){el.textContent=msg;el.style.display='block';}}
+function hideAlert(id){var el=document.getElementById(id);if(el)el.style.display='none';}
+function openModal(id){var el=document.getElementById(id);if(el)el.classList.add('open');}
+function closeModal(id){var el=document.getElementById(id);if(el)el.classList.remove('open');}
+var _toastT;
+function showToast(msg,type){
+  var t=document.getElementById('toast');
+  t.textContent=msg;t.className='toast '+(type||'success');t.classList.add('show');
+  clearTimeout(_toastT);_toastT=setTimeout(function(){t.classList.remove('show');},2800);
+}
+document.getElementById('student-id-input').addEventListener('keydown',function(e){if(e.key==='Enter')doStudentLogin();});
+document.getElementById('admin-pass-inp').addEventListener('keydown',function(e){if(e.key==='Enter')confirmAdminLogin();});
 </script>
 </body>
 </html>
